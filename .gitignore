@@ -1,3 +1,16 @@
+/appsysview/node_modules
+/appsysview/public/hot
+/appsysview/public/storage
+/appsysview/storage/*.key
+/appsysview/vendor
+/appsysview/.env
+/appsysview/.env.backup
+/appsysview/.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/vendor
 /node_modules
 /public/hot
 /public/storage
