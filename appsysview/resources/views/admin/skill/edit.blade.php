@@ -1,50 +1,68 @@
 @extends('template.thermadmin')
 
-@section('title', 'Partner')
+@section('title', 'Skill')
 
 @section('admincontenent')
     <div class="col-md-12">
         <h2>
-            New Insert
-            <a href="{{route('listpartner')}}" class="btn btn-md btn-primary"><i class="glyphicon glyphicon-arrow-left"></i></a>
+            Editer {{$data->title}}
+            <a href="{{route('listskill')}}" class="btn btn-md btn-primary"><i class="glyphicon glyphicon-arrow-left"></i></a>
         </h2>
 
 
+            <div class="col-md-12 col-sm-12">
 
-
-            <div class="col-md-10 col-sm-8">
-
-                <form method="post" action="{{route('insertpartner')}}">
+                <form method="post" action="{{route('addupdskill',$data->id)}}">
                     @csrf
+                    @method('PUT')
                     <div class="form-horizontal col-sm-12">
-                        <div class="form-group @error('titlev') is-invalid @enderror">
+
+                        <div class="form-group @error('title') is-invalid @enderror">
                             <label for="inputEmail3" class="col-sm-3 control-label">Titre</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="titlepartner" value="{{old('titlepartner')}}" placeholder="Titre De l'info bulble">
-                                @error('titlepartner')
+                                <input type="text" class="form-control" name="title" value="{{$data->title}}" placeholder="Placer le titre Ici">
+                                @error('title')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
 
 
-                        <div class="form-group @error('descdetail') is-invalid @enderror">
-                            <label for="inputEmail3" class="col-sm-3 control-label">Contenue</label>
+                        <div class="form-group @error('numberskill') is-invalid @enderror">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Number</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control"  rows="3" name="servicepartner" placeholder="Votre contenu" >{{old('servicepartner')}}</textarea>
-                                {{--@error('descdetail')--}}
-                                {{--<div class="alert alert-danger">{{ $message }}</div>--}}
-                                {{--@enderror--}}
+                                <input type="text" class="form-control"  name="numberskill" value="{{$data->numberskill}}" placeholder="Votre Nombre Ici">
+                                @error('numberskill')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 
-                        <div class="form-group @error('linkv') is-invalid @enderror">
+                        <div class="form-group @error('linkskill') is-invalid @enderror">
                             <label for="inputEmail3" class="col-sm-3 control-label">link</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control"  name="linkpartner" value="{{old('linkpartner')}}" placeholder="url du site">
-                                @error('linkpartner')
+                                <input type="text" class="form-control"  name="linkskill" value="{{$data->linkskill}}" placeholder="url du site">
+                                @error('linkskill')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group @error('linkskill') is-invalid @enderror">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Statut</label>
+                            <div class="col-sm-9">
+                                {{--{{print_r(statuscmd())}}--}}
+                                {{--{{$data->status}}--}}
+                                <label>
+                                    <select class="form-control" name="status">
+                                        @foreach (statuscmd() as $key=>$liste)
+                                            {{--<option value="{{$key}}" selected='selected'>{{$liste}}</option>--}}
+                                            <option value="{{$key}}"  {{ $key==$data->status ? "selected" : "" }} >{{$liste}}</option>
+                                        @endforeach
+                                    </select>
+                                </label>
                             </div>
                         </div>
 
@@ -55,7 +73,7 @@
                                     <select class="form-control" name="level">
                                         @foreach (levelcmd() as $key=>$liste)
                                             {{--<option value="{{$key}}" selected='selected'>{{$liste}}</option>--}}
-                                            <option value="{{$key}}" {{ $key==old('level') ? "selected" : "" }} >{{$liste}}</option>
+                                            <option value="{{$key}}" {{ $key==$data->level ? "selected" : "" }} >{{$liste}}</option>
                                         @endforeach
                                     </select>
                                 </label>
@@ -66,7 +84,7 @@
                             <label for="inputEmail3" class="col-sm-3 control-label">Langues</label>
                             <div class="col-sm-9">
                                 <label>
-                                    <span class="btn-info">en</span>
+                                    <span class="btn-info"> EN {{$data->langues}}</span>
                                 </label>
                             </div>
                         </div>
@@ -89,10 +107,6 @@
 
             </div>
     </div>
-
-
-
-
 
 
 @endsection

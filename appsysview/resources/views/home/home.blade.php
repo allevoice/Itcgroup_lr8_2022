@@ -215,76 +215,52 @@
 
 
 
-
+    @if (count($helpingview) > 0)
     <!--=====================================-->
     <!--========= Bringing new look =========-->
     <!--=====================================-->
     <div class="text-center col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="row">
-            <aside class="business-imagebox col-lg-4 col-md-4 col-sm-7 col-xs-12 ">
-                <div class="row">
-                    <figure>
-                        <img alt="business-quality" src="{{asset('assets/img/logo/business-quality.jpg')}}">
-                    </figure>
-                    <h3 class="caption-heading">quality</h3>
-                    <div class="caption">
-                        <div class="caption-text">
-                            <h3>quality</h3>
-                            <p class="regular-font">We provide quality services, of an international standard. Our work is carried out with perfect measurements.</p>
-                            <!-- // <div class="transparent-btn"><a href="#">Read More</a></div> //-->
-                            <!-- caption-text-->
+
+            @foreach ($helpingview as $helpingviwelist)
+
+                <aside class="business-imagebox col-lg-4 col-md-4 col-sm-7 col-xs-12 ">
+                    <div class="row">
+                        <figure>
+                            <img alt="business-quality" src="{{asset('assets/img/logo')}}/{{$helpingviwelist->backimghelp}}">
+                        </figure>
+                        <h3 class="caption-heading">{{$helpingviwelist->title}}</h3>
+                        <div class="caption">
+                            <div class="caption-text">
+                                <h3>{{$helpingviwelist->title}}</h3>
+                                <p class="regular-font">{{$helpingviwelist->description}}</p>
+                                <!-- // <div class="transparent-btn"><a href="#">Read More</a></div> //-->
+                                <!-- caption-text-->
+                            </div>
+                            <!--caption-->
                         </div>
-                        <!--caption-->
+                        <!--row-->
                     </div>
-                    <!--row-->
-                </div>
-                <!--business-imagebox-->
-            </aside>
-            <aside class="business-imagebox col-lg-4 col-md-4 col-sm-7 col-xs-12 ">
-                <div class="row">
-                    <figure>
-                        <img alt="commitment" src="{{asset('assets/img/logo/commitment.jpg')}}">
-                    </figure>
-                    <h3 class="caption-heading">commitment</h3>
-                    <div class="caption">
-                        <div class="caption-text">
-                            <h3>commitment</h3>
-                            <p class="regular-font">We take your projects to heart. We respect our commitments and work quickly. You can count on us.</p>
-                            <!-- // <div class="transparent-btn"><a href="#">Read More</a></div> //-->
-                            <!-- caption-text-->
-                        </div>
-                        <!-- caption-->
-                    </div>
-                    <!--row-->
-                </div>
-                <!--business-imagebox-->
-            </aside>
-            <aside class="business-imagebox col-lg-4 col-md-4 col-sm-7 col-xs-12 ">
-                <div class="row">
-                    <figure>
-                        <img alt="business-success" src="{{asset('assets/img/logo/business-success.jpg')}}">
-                    </figure>
-                    <h3 class="caption-heading">swiftness</h3>
-                    <div class="caption">
-                        <div class="caption-text">
-                            <h3>swiftness</h3>
-                            <p class="regular-font">Quick result? it's us. Our services are offered within short periods, to save you time.</p>
-                            <!-- // <div class="transparent-btn"><a href="#">Read More</a></div> //-->
-                            <!--caption-text-->
-                        </div>
-                        <!--caption-->
-                    </div>
-                    <!--row-->
-                </div>
-                <!--business-imagebox-->
-            </aside>
-            <!--row-->
+                    <!--business-imagebox-->
+                </aside>
+
+
+
+
+            @endforeach
+
+
+
+
         </div>
         <!--text-center-->
     </div>
+@endif
 
 
 
+
+    @if (count($skill) > 0)
 
     <!--=====================================-->
     <!--============= Skill Level ===========-->
@@ -293,61 +269,21 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <aside class="skill-level col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-                        <div class="col-lg-4 col-md-12 col-sm-12 stat-count text-center bold-font">8</div>
-                        <div class="col-lg-4 col-md-12 col-sm-12 text-center">
-                            <h4 class="black-color"><span >Years of Experiences</span></h4>
-                        </div>
-                        <!--skill-level-->
-                    </aside>
-                    <!--col-lg-3-->
-                </div>
 
 
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <aside class="skill-level col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                @foreach ($skill as $skilllist)
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <aside class="skill-level col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-                        <div class="col-lg-4 col-md-12 col-sm-12 stat-count text-center bold-font">90</div>
-                        <div class="col-lg-4 col-md-12 col-sm-12 text-center">
-                            <h4 class="black-color"><span >Happy Customers</span></h4>
-                        </div>
-                        <!--skill-level-->
-                    </aside>
-                    <!--col-lg-3-->
-                </div>
-
-
-
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <aside class="skill-level col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="col-lg-4 col-md-12 col-sm-12 stat-count text-center bold-font">9</div>
-                        <div class="col-lg-4 col-md-12 col-sm-12 text-center">
-                            <h4 class="black-color"><span >customers every years</span></h4>
-                        </div>
-                        <!--skill-level-->
-                    </aside>
-                    <!--col-lg-3-->
-                </div>
-
-
-
-
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <aside class="skill-level col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="col-lg-4 col-md-12 col-sm-12 stat-count text-center bold-font">{{count($partner)}}</div>
-                        <div class="col-lg-4 col-md-12 col-sm-12 text-center">
-                            <h4 class="black-color"><span >affiliate Partnership</span></h4>
-                        </div>
-                        <!--skill-level-->
-                    </aside>
-                    <!--col-lg-3-->
-                </div>
-
-
-
-
+                            <div class="col-lg-4 col-md-12 col-sm-12 stat-count text-left bold-font" style="margin-left: -10%">{{$skilllist->numberskill}}</div>
+                            <div class="col-lg-4 col-md-12 col-sm-12 text-right" style="margin-left: 10%">
+                                <h4 class="black-color"><span >{{$skilllist->tile}}Years of Experiences</span></h4>
+                            </div>
+                            <!--skill-level-->
+                        </aside>
+                        <!--col-lg-3-->
+                    </div>
+                @endforeach
 
         </div>
         <!--paddingBox-->
@@ -355,7 +291,7 @@
     <!--main-contentbox-->
     </div>
 
-
+    @endif
 
 
 

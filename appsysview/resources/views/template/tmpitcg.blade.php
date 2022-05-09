@@ -7,6 +7,24 @@
         <title>ITC Group | @yield('title')</title>
         <link rel="icon" href="{{asset('assets/img/logo/favicon.png')}}'" type="image/png">
 
+        <style>
+            h1{
+                font-size: x-small;
+                font-weight: bold;
+            }
+            /*ce style est pour les LI de TinyCME */
+            .persoimage ul, .persoimage li{
+                list-style-type: none;
+                {{--list-style-image: url('{{asset('')}}assets/img/logo/small-logo.png');--}}
+                margin: 0;
+                padding-left: 15px;
+                /*padding: 36px 0 36px 84px;*/
+                background-image: url('{{asset('assets/img/logo/small-logo.png')}}');
+                background-repeat: no-repeat;
+                background-position: left center;
+                background-size: 10px;
+            }
+        </style>
         <link rel="stylesheet" href="{{asset('assets/css/all-stylesheets.css')}}" type="text/css" />
         <link rel="stylesheet" href="{{asset('assets/css/bootstrap/bootstrap.min.css')}}" type="text/css" />
         <link rel="stylesheet" href="{{asset('assets/css/moncss.css')}}" type="text/css" />

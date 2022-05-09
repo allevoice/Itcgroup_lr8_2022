@@ -56,9 +56,9 @@ if(!function_exists('levelcmd')){
                 case 1: return "Premier";break;
                 case 2: return "Second";break;
                 case 3: return "Troisieme";break;
-                case 4: return "4";break;
-                case 5: return "5";break;
-                case 6: return "6";break;
+                case 4: return "Quatrieme";break;
+                case 5: return "Cinquieme";break;
+                case 6: return "Sisieme";break;
             }
         }
     }

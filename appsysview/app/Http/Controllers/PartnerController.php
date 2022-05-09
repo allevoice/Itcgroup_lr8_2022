@@ -135,7 +135,7 @@ class PartnerController extends Controller
      */
     public function update(Request $request, Partner $partner)
     {
-        $id = $request->id;
+        $id = $partner->id;
         $titlepartner = $request->titlepartner;
         $servicepartner = $request->servicepartner;
         $linkpartner = $request->linkpartner;
@@ -242,7 +242,7 @@ class PartnerController extends Controller
     public function destroy(Partner $partner)
     {
         Partner::destroy($partner->id);
-        return redirect()->route('listpartner');
+        return redirect()->route('listhelping');
     }
 
     //recuperon et supression total les elementys

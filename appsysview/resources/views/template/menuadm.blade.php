@@ -44,16 +44,16 @@ font-size: 16px;">
                     <li>
                         <a href="#">We are u</a>
                     </li>
-                    <li>
-                        <a href="#">Helping</a>
-                    </li>
 
                     <li>
                         <a href="#">Bringing</a>
                     </li>
 
                     <li>
-                        <a href="#">Skill</a>
+                        <a href="{{route('listhelping')}}">Helping</a>
+                    </li>
+                    <li>
+                        <a href="{{route('listskill')}}">Skill</a>
                     </li>
 
                     <li>

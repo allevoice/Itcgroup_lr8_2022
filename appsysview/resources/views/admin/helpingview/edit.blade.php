@@ -1,43 +1,23 @@
 @extends('template.thermadmin')
 
-@section('title', 'Partner')
+@section('title', 'Helping')
 
 @section('admincontenent')
     <div class="col-md-12">
         <h2>
-            Editer {{$data->titlepartner}}
-            <a href="{{route('listpartner')}}" class="btn btn-md btn-primary"><i class="glyphicon glyphicon-arrow-left"></i></a>
+            Editer {{$data->title}}
+            <a href="{{route('listhelping')}}" class="btn btn-md btn-primary"><i class="glyphicon glyphicon-arrow-left"></i></a>
         </h2>
 
 
         <div class="col-md-4 col-sm-4">
-
                     <div class="col-sm-12">
-                        @if ($data->backimgpartner == NULL)
-                            <img src="{{asset('assets/img/partners/services-img1.jpg')}}" class="img-thumbnail">
-                        @else
-                            <img src="{{asset('assets/img/partners/')}}/{{$data->backimgpartner}}" class="img-thumbnail">
-                        @endif
-                        <div>
-                            <a href="#" class="btn btn-xs btn-info" data-toggle="modal" data-target="#back_{{$data->id}}">Edit</a>
-                        </div>
-                        <span id="helpBlock" class="help-block">
-                             @error('backimgpartner')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-
-                        <strong>Background image</strong>
-                        Accept les format suivant PNG, JPG, JPEG...
-                        </span>
-                    </div>
-
-                    <div class="col-sm-12">
-                            <img src="{{asset('assets/img/partners/')}}/{{$data->imgpartner}}" class="img-thumbnail" style="width:80">
+                            <img src="{{asset('assets/img/logo/')}}/{{$data->backimghelp}}" class="img-thumbnail" style="width:100">
                         <div>
                             <a href="#" class="btn btn-xs btn-info" data-toggle="modal" data-target="#logo_{{$data->id}}">Edit</a>
                         </div>
                         <span id="helpBlock" class="help-block">
-                              @error('imgpartner')
+                              @error('backimghelp')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         <strong>Logo</strong>
@@ -48,7 +28,7 @@
 
             <div class="col-md-8 col-sm-8">
 
-                <form method="post" action="{{route('addupdpartner',$data->id)}}">
+                <form method="post" action="{{route('addupdhelping',$data->id)}}">
                     @csrf
                     @method('PUT')
                     <input type="text" name="id" value="{{$data->id}}" hidden>
@@ -56,36 +36,27 @@
 
                     <div class="form-horizontal col-sm-12">
 
-                        <div class="form-group @error('titlev') is-invalid @enderror">
+                        <div class="form-group @error('title') is-invalid @enderror">
                             <label for="inputEmail3" class="col-sm-3 control-label">Titre</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="titlepartner" value="{{$data->titlepartner}}" placeholder="Titre De l'info bulble">
-                                @error('titlepartner')
+                                <input type="text" class="form-control" name="title" value="{{$data->title}}" placeholder="Titre De l'info bulble">
+                                @error('title')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
 
 
-                        <div class="form-group @error('descdetail') is-invalid @enderror">
-                            <label for="inputEmail3" class="col-sm-3 control-label">Contenue</label>
+                        <div class="form-group @error('description') is-invalid @enderror">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Description</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control"  rows="3" name="servicepartner" placeholder="Votre contenu" >{{$data->servicepartner}}</textarea>
-                                {{--@error('descdetail')--}}
-                                {{--<div class="alert alert-danger">{{ $message }}</div>--}}
-                                {{--@enderror--}}
-                            </div>
-                        </div>
-
-                        <div class="form-group @error('linkv') is-invalid @enderror">
-                            <label for="inputEmail3" class="col-sm-3 control-label">link</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control"  name="linkpartner" value="{{$data->linkpartner}}" placeholder="url du site">
-                                @error('linkpartner')
+                                <textarea class="form-control myTextEditor"  rows="3" name="description" placeholder="Votre contenu" >{{$data->description}}</textarea>
+                                @error('description')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
+
 
 
                         <div class="form-group @error('linkv') is-invalid @enderror">
@@ -129,7 +100,7 @@
 
                         <div class="form-group text-center">
                             <div class="col-xs-6">
-                                <a href="{{route('listpartner')}}" class="btn btn-danger" type="button">Retour</a>
+                                <a href="{{route('listhelping')}}" class="btn btn-danger" type="button">Retour</a>
                             </div>
                             <div class="col-xs-6">
                                 <label>
@@ -147,47 +118,10 @@
     </div>
 {{--Mise a jours de background--}}
 
-<div class="modal fade" id="back_{{$data->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <form method="post" action="{{route('addupdpartner',$data->id)}}" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
-
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Background Modification</h4>
-            </div>
-            <div class="modal-body">
-                @if ($data->backimgpartner == NULL)
-                    <img src="{{asset('assets/img/partners/services-img1.jpg')}}" class="img-thumbnail">
-                @else
-                    <img src="{{asset('assets/img/partners/')}}/{{$data->backimgpartner}}" class="img-thumbnail">
-                @endif
-                
-                <div>
-                    <input type="text" name="id" value="{{$data->id}}" hidden>
-                    <input type="text" name="indice" value="1" hidden>
-                    <input type="file" name="backimgpartner">
-                </div>
-                <span id="helpBlock" class="help-block">
-                Accept les format suivant PNG, JPG, JPEG...
-                </span>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save</button>
-            </div>
-        </div>
-    </div>
-    </form>
-</div>
-{{--Mise a jours de background--}}
 
 {{--Mise a jours de Logo--}}
 <div class="modal fade" id="logo_{{$data->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <form method="post" action="{{route('addupdpartner',$data->id)}}" enctype="multipart/form-data">
+    <form method="post" action="{{route('addupdhelping',$data->id)}}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
     <div class="modal-dialog" role="document">
@@ -197,11 +131,11 @@
                 <h4 class="modal-title" id="myModalLabel">Logo Modification</h4>
             </div>
             <div class="modal-body">
-                    <img src="{{asset('assets/img/partners/')}}/{{$data->imgpartner}}" class="img-thumbnail" style="width:80">
+                    <img src="{{asset('assets/img/logo/')}}/{{$data->backimghelp}}" class="img-thumbnail" style="width:100">
                     <div>
                         <input type="text" name="id" value="{{$data->id}}" hidden>
                         <input type="text" name="indice" value="2" hidden>
-                        <input type="file" name="imgpartner">
+                        <input type="file" name="backimghelp">
                     </div>
                 <span id="helpBlock" class="help-block">
                         Accept les format suivant PNG, JPG

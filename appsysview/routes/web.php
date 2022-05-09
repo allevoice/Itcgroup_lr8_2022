@@ -80,7 +80,45 @@ Route::get('/admin','DashpageController@index')->name('adminpage');
 //Slide Shows
 
 
-//Partners
+
+
+
+
+
+
+/*========================Les routes de Helpingview Start===============================*/
+Route::resource('helpingview','HelpingviewController')->names([
+    'index'=> 'listhelping',
+    'show',
+    'create'=> 'newhelping',
+    'store'=>'inserthelping',
+    'edit'=>'edithelping',
+    'update' =>'addupdhelping',
+    'destroy'=>'delhelping'
+]);
+Route::get('/delhelping','HelpingviewController@sofderestore')->name('listedelhelping');
+Route::get('/restores/{id}','HelpingviewController@restoredestroy')->name('helpingrestoredele');
+Route::delete('/destoreds/{id}','HelpingviewController@destoredefinitely')->name('helpingdeletecomplete');
+/*========================Les routes de Helpingview END===============================*/
+
+
+/*========================Les routes de SKill Start===============================*/
+Route::resource('skill','SkillController')->names([
+    'index'=> 'listskill',
+    'show',
+    'create'=> 'newskill',
+    'store'=>'insertskill',
+    'edit'=>'editskill',
+    'update' =>'addupdskill',
+    'destroy'=>'delskill'
+]);
+Route::get('/delskill','SkillController@sofderestore')->name('listedelskill');
+Route::get('/restoreskill/{id}','SkillController@restoredestroy')->name('skillrestoredele');
+Route::delete('/destoredskill/{id}','SkillController@destoredefinitely')->name('skilldeletecomplete');
+/*========================Les routes de SKill END===============================*/
+
+
+/*========================Les routes de Partners Start===============================*/
 Route::resource('partners', 'PartnerController')->names([
     'index'=> 'listpartner',
     'show',
@@ -93,18 +131,4 @@ Route::resource('partners', 'PartnerController')->names([
 Route::get('/delpartener','PartnerController@sofderestore')->name('listedelpartener');
 Route::get('/restoredestroy/{id}','PartnerController@restoredestroy')->name('restoredelepartener');
 Route::delete('/destoredefinitely/{id}','PartnerController@destoredefinitely')->name('deletecompletepartener');
-//fin les routes de categorie
-//Partners
-
-
-//Status
-Route::resource('status', 'StatusController')->names([
-    'index'=> 'liststatus',
-    'show',
-    'create',
-    'store',
-    'edit',
-    'update',
-    'destroy'
-]);
-//Status
+/*========================Les routes de Partners END===============================*/

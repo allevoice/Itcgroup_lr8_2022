@@ -110,31 +110,21 @@
         <br>
         code
 
-        <script src="{{asset('assets/js/tinymce/tinymce.min.js')}}"></script>
+
 
 
         <h1>TinyMCE Quick Start Guide</h1>
 
-        <script>
-            tinymce.init({
-			  selector: 'textarea',  // change this value according to your HTML
-			   placeholder: 'Type here...',
-			});
 
-
-        </script>
-        </head>
-
-        <body>
-
-
-        <form action='tes.php' method="POST">
             <textarea name='salut'></textarea>
+
+
+
+        <textarea class="myTextEditor" rows="6" cols="96" >word</textarea>
+        <br>
+        <br>
+            <textarea name='vision'></textarea>
             <br/>
-
-
-
-
 
 
     </div>

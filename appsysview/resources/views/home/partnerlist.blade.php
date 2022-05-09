@@ -55,7 +55,7 @@
                     <!--================================================-->
                     <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="container">
-                            <div class="row text-center" style="margin-right: 1%">
+                            <div class="row" style="margin-right: 1%">
 
                                 @foreach ($partner as $partnerlst)
 
@@ -85,7 +85,15 @@
                                             <h4 style="font-size:90%">{{$partnerlst->titlepartner}}</h4>
                                             <p>Services</p>
                                             <p style="font-size: 100%">
-                                                {{$partnerlst->servicepartner}}
+                                                {{--{{$partnerlst->servicepartner}}--}}
+                                                {!! html_entity_decode($partnerlst->servicepartner) !!}
+                                                <ul class="persoimage">
+                                                    <li>Visionner</li>
+                                                    <li>Visionner</li>
+                                                    <li>Visionner</li>
+                                                    <li>Visionner</li>
+                                                </ul>
+
                                             </p>
                                             <!--service-innerbox-->
                                         </div>
@@ -93,8 +101,7 @@
                                     </aside>
 
                                 @endforeach
-                                <!--row-->
-                            </div>
+bhbbk ,.,.                            </div>
                             <!--container-->
                         </div>
                         <!--paddingBox-->
