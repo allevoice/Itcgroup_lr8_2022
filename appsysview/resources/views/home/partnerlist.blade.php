@@ -59,7 +59,7 @@
 
                                 @foreach ($partner as $partnerlst)
 
-                                    <aside class="services-plans col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <aside class="services-plans col-lg-3 col-md-3 col-sm-6 col-xs-12" style="padding-bottom: 10;padding-top: 10">
                                         <figure>
                                             @if ($partnerlst->backimgpartner !=Null)
                                                 <img src="{{asset('assets/img/partners/')}}/{{$partnerlst->backimgpartner}}" alt="" height="200"/>
@@ -67,6 +67,15 @@
                                                 <img src="{{asset('assets/img/partners/services-img1.jpg')}}" alt="" height="200"/>
                                             @endif
                                         </figure>
+                                        <style>
+                                            @media (min-width: 760px) {
+                                                .greyBg {
+                                                    width: 100%;
+                                                    height: 200px;
+                                                    /*background-color: red;*/
+                                                }
+                                            }
+                                        </style>
                                         <div class="service-innerbox greyBg">
                                             <a href="https://{{$partnerlst->linkpartner}}" target="_blank">
                                                 <div class="icon-holder darkBlueBg" data-effect="helix">
@@ -82,26 +91,28 @@
                                                     <span><img src="{{asset('assets/img/partners')}}/{{$partnerlst->imgpartner}}" alt="invest-img2" class="monimgback"/></span>
                                                 </div>
                                             </a>
-                                            <h4 style="font-size:90%">{{$partnerlst->titlepartner}}</h4>
-                                            <p>Services</p>
-                                            <p style="font-size: 100%">
+                                            <h4 style="font-size:90%">{{Illuminate\Support\Str::limit($partnerlst->titlepartner, 20)}}</h4>
+                                            <a href="https://{{$partnerlst->linkpartner}}" target="_blank">
+                                                <span class="btn btn-md btn-primary">{{Illuminate\Support\Str::limit($partnerlst->titleservices, 18)}}</span>
+                                            </a>
+                                            <div style="font-size: 100%; margin-bottom: 0;margin-top: 0;">
                                                 {{--{{$partnerlst->servicepartner}}--}}
-                                                {!! html_entity_decode($partnerlst->servicepartner) !!}
-                                                <ul class="persoimage">
-                                                    <li>Visionner</li>
-                                                    <li>Visionner</li>
-                                                    <li>Visionner</li>
-                                                    <li>Visionner</li>
-                                                </ul>
+                                                {!! Illuminate\Support\Str::limit(html_entity_decode($partnerlst->servicepartner), 50) !!}
+                                                {{--<ul class="persoimage">--}}
+                                                    {{--<li>Visionner</li>--}}
+                                                    {{--<li>Visionner</li>--}}
+                                                    {{--<li>Visionner</li>--}}
+                                                    {{--<li>Visionner</li>--}}
+                                                {{--</ul>--}}
 
-                                            </p>
+                                            </div>
                                             <!--service-innerbox-->
                                         </div>
                                         <!--services-plans--><br>
                                     </aside>
 
                                 @endforeach
-bhbbk ,.,.                            </div>
+                          </div>
                             <!--container-->
                         </div>
                         <!--paddingBox-->

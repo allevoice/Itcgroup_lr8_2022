@@ -17,6 +17,10 @@
                 background-position: left center;
                 background-size: 10px;
             }
+            .monpa {
+                margin: 0px 0px 0px 0px;
+                padding: 0px 0px 0px 0px;
+            }
         </style>
 
         <!-- BOOTSTRAP STYLES-->

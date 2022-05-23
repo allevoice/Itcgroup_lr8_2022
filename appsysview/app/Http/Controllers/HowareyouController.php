@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Bringing;
+use App\Howareyou;
 use Illuminate\Http\Request;
 
-class BringingController extends Controller
+class HowareyouController extends Controller
 {
 
     public function messageerreur(){
@@ -16,7 +16,11 @@ class BringingController extends Controller
             'backimg.max'    => 'The :attribute ne doit pas depasser cette valeur  :max Bite. ',
             'backimg.mimes' => 'Le type format de l\'image n\'est pas prise en charge',
 
-            'myTextEditor.required'=> 'Le champ Description ne doit pas etre vide',
+            'title.required'=> 'Le champ titre ne doit pas etre vide',
+            'title.max'=> 'Le champ titre ne doit pas depasser les :max caractères',
+            'title.min'=> 'Le champ titre ne doit pas inferieur les :min caractères',
+
+            'description.required'=> 'Le champ titre ne doit pas etre vide',
 
             'link.required'=> 'Le champ Url ne doit pas etre vide',
             'link.url'=> 'Ce n\'est pas un adresse et doit ecrire de cette facon "http://www.mondomaine.com"',
@@ -35,9 +39,9 @@ class BringingController extends Controller
      */
     public function index()
     {
-        $data = Bringing::orderBy('updated_at', 'desc')->get();
+        $data = Howareyou::orderBy('updated_at', 'desc')->get();
         //dd($data);
-        return view('admin/bringing/liste',compact('data'));
+        return view('admin/howareyou/liste',compact('data'));
     }
 
     /**
@@ -47,7 +51,7 @@ class BringingController extends Controller
      */
     public function create()
     {
-        return view('admin/bringing/new');
+        return view('admin/howareyou/new');
     }
 
     /**
@@ -58,20 +62,23 @@ class BringingController extends Controller
      */
     public function store(Request $request)
     {
+        $title = $request->title;
         $link = $request->link;
-        $description = $request->myTextEditor;
+        $description = $request->description;
         $status = '0';
         $langues = '1';
         $iduser = '1';
 
         //verification et envoie des message
         $request->validate([
+            'title'=>'required|min:5|max:250',
             'link'=>'required|url',
-            'myTextEditor'=>'required',
+            'description'=>'required',
         ],$this->messageerreur());
 
         //insertion de nouvelle de donnee
-        $data= new Bringing();
+        $data= new Howareyou();
+        $data->title = $title;
         $data->link = $link;
         $data->description = $description;
         $data->status = $status;
@@ -79,16 +86,16 @@ class BringingController extends Controller
         $data->iduser = $iduser;
         $data->save();
         //redirection vers la page liste
-        return redirect()->route('editbringing',$data->id);
+        return redirect()->route('edithowareyou',$data->id);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Bringing  $bringing
+     * @param  \App\Howareyou  $howareyou
      * @return \Illuminate\Http\Response
      */
-    public function show(Bringing $bringing)
+    public function show(Howareyou $howareyou)
     {
         //
     }
@@ -96,30 +103,30 @@ class BringingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Bringing  $bringing
+     * @param  \App\Howareyou  $howareyou
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bringing $bringing)
+    public function edit(Howareyou $howareyou)
     {
-        $data=$bringing;
-        return view('admin/bringing/edit',compact('data'));
-
+        $data=$howareyou;
+        return view('admin/howareyou/edit',compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Bringing  $bringing
+     * @param  \App\Howareyou  $howareyou
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bringing $bringing)
+    public function update(Request $request, Howareyou $howareyou)
     {
+        //dd('update');
 
-        //dd('mon code');
-        $id = $bringing->id;
+        $id = $howareyou->id;
+        $title = $request->title;
         $link = $request->link;
-        $description = $request->myTextEditor;
+        $description = $request->description;
         $status = $request->status;
         $iduser = $request->iduser;
 
@@ -128,7 +135,7 @@ class BringingController extends Controller
 
 
 
-        $helpupdatedata = Bringing::where('id', $id);//fixer l'id pour la mise a jour
+        $helpupdatedata = Howareyou::where('id', $id);//fixer l'id pour la mise a jour
         $nbr = time().'-'.date("Y").date("m").date("d"); //recupere l'annee le mois le jour
         //dd($request->indice);
         //Mise a jour du logo ssi indice ==2
@@ -149,9 +156,9 @@ class BringingController extends Controller
 
             if($data==true) {
                 //sauvegarde du fichier dans un repertoire
-                $request->file('backimg')->storeAs('assets/img/logo/', $filename_file, 'public_perso');
+                $request->file('backimg')->storeAs('assets/img/whoareuimg/', $filename_file, 'public_perso');
             }
-            return redirect(route('editbringing',$id));
+            return redirect(route('edithowareyou',$id));
 
 
 
@@ -161,21 +168,25 @@ class BringingController extends Controller
         elseif ($request->indice==3){
 
             $request->validate([
+                'title'=>'required|min:5|max:250',
                 'link'=>'required|url',
-                'myTextEditor'=>'required'
+                'description'=>'required'
             ],$message_fr);
 
             $helpupdatedata->update([
+                'title' => $title,
                 'description' => $description,
                 'link' => $link,
                 'status' => $status
             ]);
-            return redirect(route('editbringing',$id));
+            return redirect(route('edithowareyou',$id));
 
         }else{
-            return redirect(route('listbringing'));
+            return redirect(route('listhowareyou'));
             echo 'On ne fait rien';
         }
+
+
 
 
 
@@ -184,13 +195,13 @@ class BringingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Bringing  $bringing
+     * @param  \App\Howareyou  $howareyou
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bringing $bringing)
+    public function destroy(Howareyou $howareyou)
     {
-        Bringing::destroy($bringing->id);
-        return redirect()->route('listbringing');
+        Howareyou::destroy($howareyou->id);
+        return redirect()->route('listhowareyou');
     }
 
 
@@ -198,18 +209,18 @@ class BringingController extends Controller
     public function sofderestore()
     {
         //afficher les elements suprimers
-        $data = Bringing::onlyTrashed()->get();;
-        return view('admin/bringing/del', compact('data'));
+        $data = Howareyou::onlyTrashed()->get();;
+        return view('admin/howareyou/del', compact('data'));
     }
 
     //restauration des element suprimer par son ID
     public function restoredestroy(Request $request)
     {
         //dd($request->id);
-        Bringing::onlyTrashed()
+        Howareyou::onlyTrashed()
             ->where('id', $request->id)
             ->restore();
-        return redirect()->route('listbringing');
+        return redirect()->route('listhowareyou');
     }
 
 
@@ -217,21 +228,11 @@ class BringingController extends Controller
     public function destoredefinitely(Request $request)
     {
         //dd($request->id);
-        Bringing::onlyTrashed()
+        Howareyou::onlyTrashed()
             ->where('id', $request->id)
             ->forceDelete();
-        return redirect()->route('listbringing');
+        return redirect()->route('listhowareyou');
     }
-
-
-
-
-
-
-
-
-
-
 
 
 

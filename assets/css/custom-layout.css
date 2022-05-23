@@ -633,7 +633,7 @@ a:hover {
 
 .pattern {
 
-	background-image: url(public/assets/img/backgrounds/pattern-bg.jpg);
+	/*background-image: url(public/assets/img/backgrounds/pattern-bg.jpg);*/
 
 	background-position: left top;
 
@@ -713,7 +713,7 @@ a:hover {
 
 	font-weight: 400;
 
-	background: url(public/images/icons/li-icon.png) no-repeat left 7px;
+	/*background: url(public/images/icons/li-icon.png) no-repeat left 7px;*/
 
 }
 

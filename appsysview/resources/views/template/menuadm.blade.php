@@ -42,11 +42,11 @@ font-size: 16px;">
                         <a href="#">Services offert</a>
                     </li>
                     <li>
-                        <a href="#">We are u</a>
+                        <a href="{{route('listhowareyou')}}">How are u</a>
                     </li>
 
                     <li>
-                        <a href="#">Bringing</a>
+                        <a href="{{route('listbringing')}}">Bringing</a>
                     </li>
 
                     <li>

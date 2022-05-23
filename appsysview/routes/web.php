@@ -36,6 +36,10 @@ Route::get('services', function () {
     return view('home/services');
 })->name('services');
 
+Route::get('service_detail/{code}', function () {
+    return view('home/service_detail');
+})->name('service_details');
+
 Route::get('projet', function () {
     return view('home/projects');
 })->name('projects');
@@ -84,6 +88,37 @@ Route::get('/admin','DashpageController@index')->name('adminpage');
 
 
 
+
+
+/*========================Les routes de Bringing Start===============================*/
+Route::resource('bringing','BringingController')->names([
+    'index'=> 'listbringing',
+    'show',
+    'create'=> 'newbringing',
+    'store'=>'insertbringing',
+    'edit'=>'editbringing',
+    'update' =>'addupdbringing',
+    'destroy'=>'delbringing'
+]);
+Route::get('/bringdel','BringingController@sofderestore')->name('bringlstdel');
+Route::get('/restorebring/{id}','BringingController@restoredestroy')->name('restdelbringing');
+Route::delete('/destoredbring/{id}','BringingController@destoredefinitely')->name('bringingdelete');
+/*========================Les routes de Bringing END===============================*/
+
+/*========================Les routes de How are you Start===============================*/
+Route::resource('howareyou','HowareyouController')->names([
+    'index'=> 'listhowareyou',
+    'show',
+    'create'=> 'newhowareyou',
+    'store'=>'inserthowareyou',
+    'edit'=>'edithowareyou',
+    'update' =>'addupdhowareyou',
+    'destroy'=>'delhowareyou'
+]);
+Route::get('/del','HowareyouController@sofderestore')->name('listedelhowareyou');
+Route::get('/restoreshu/{id}','HowareyouController@restoredestroy')->name('restdelhowaru');
+Route::delete('/destoredhowareu/{id}','HowareyouController@destoredefinitely')->name('hoeudelete');
+/*========================Les routes de How are you END===============================*/
 
 
 /*========================Les routes de Helpingview Start===============================*/

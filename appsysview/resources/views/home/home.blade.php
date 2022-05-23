@@ -18,6 +18,8 @@
                     <h2 class="black-font">We offer Different Services</h2>
                     <p class="regular-font">We have the service you need, with international quality.</p>
                     <div class="spacer"></div>
+
+
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 imghvr-push-down">
                         <div class="services-box greyBg col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div>
@@ -33,9 +35,10 @@
                                                     <img src="{{asset('assets/img/icons/invest-imgHover.png')}}" alt="invest-imgHover" />
                                                 </figure>
                                                 <h4 class="white-color">installation</h4>
-                                                <p class="regular-font">Energy system: solar panel, inverter and others</p>
+                                                <p class="regular-font">{{Illuminate\Support\Str::limit('Energy system: solar panel, inverter and othersEnergy system: solar panel, inverter and othersEnergy system: solar panel, inverter and othersEnergy system: solar panel, inverter and othersEnergy system: solar panel, inverter and others', 20)}}</p>
                                                 <div class="transparent-btn btn1">
                                                     <a href="{{route('contact')}}">Contact</a>
+                                                    <a href="{{route('service_details','220394')}}">Link</a>
                                                 </div>
                                             </div>
                                             <!--services-infoBox-->
@@ -48,6 +51,10 @@
                         </div>
                         <!--col-lg-3-->
                     </div>
+
+
+
+
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 imghvr-push-down">
                         <div class="services-box greyBg col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div>
@@ -78,6 +85,10 @@
                         </div>
                         <!--col-lg-3-->
                     </div>
+
+
+
+
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 imghvr-push-down">
                         <div class="services-box greyBg col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div>
@@ -108,6 +119,8 @@
                         </div>
                         <!--col-lg-3-->
                     </div>
+
+
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 imghvr-push-down">
                         <div class="services-box greyBg col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div>
@@ -138,78 +151,109 @@
                         </div>
                         <!--col-lg-3-->
                     </div>
+
+
+
+
                     <!--row-->
                 </div>
                 <!--container-->
             </div>
             <!--paddingBox-->
         </div>
+
+
+    @if (count($howareu) > 0)
         <!--=====================================-->
         <!--============ Who We Are =============-->
         <!--=====================================-->
-        <div class="pattern col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-color: #000000">
-            <div class="container" style="background-color: #000000">
-                <div class="row">
-                    <div class="who-we-are pull-left col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <div>
-                            <h2>Who We Are</h2>
-                            <p>We are a progressive group. Evolving in several fields such as IT. We are here to offer you quality and standard services.</p>
-                            <p>Contact Us today. </p>
-                            <div class="transparent-btn pull-left">
-                                <a href="{{route('contact')}}">Join Now</a>
+            <style>
+                @media (max-width: 810px) {
+                        .container-fluid {
+                            padding-left:0px;
+
+                        }
+                        .persoviewhowareu{
+                            padding-left:2%;
+                        }
+                    }
+                .persoviewhowareu{
+                    padding-left:3%;
+                }
+            </style>
+        <div class="container-fluid">
+            <div class="pattern pull-left col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-color: #000000;">
+                <div  style="background-color: #000000;" >
+
+                    @foreach ($howareu as $howareuget)
+                        <div class="row">
+                            <div class="who-we-are pull-left col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="persoviewhowareu">
+                                    <h2>{{$howareuget->title}}</h2>
+                                    <p>{{$howareuget->description}} </p>
+                                    <div class="transparent-btn pull-left">
+                                        <a href="{{$howareuget->link}}" target="_blank">Join Now</a>
+                                    </div>
+                                </div>
+                                <!--who-we-are-->
                             </div>
+                            <!--row-->
                         </div>
-                        <!--who-we-are-->
-                    </div>
-                    <!--row-->
-                </div>
 
-                <div class="who-we-are-img">
-                    <img src="{{asset('assets/img/logo/who-we-are-img.png')}}" alt="who-we-are-img" />
-                </div>
-
+                        <div class="who-we-are-img">
+                            <img src="{{asset('assets/img/whoareuimg')}}/{{$howareuget->backimg}}" alt="who-we-are-img"/>
+                        </div>
+                @endforeach
                 <!--container-->
-            </div>
+                </div>
 
-            <!--pattern-->
+                <!--pattern-->
+            </div>
         </div>
+
+    @endif
+
+
+    @if (count($bringing) > 0)
         <!--====================================-->
         <!--========= Business Meeting =========-->
         <!--====================================-->
-        <div class="paddingBox col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="paddingBox col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="z-index: 999;background-color: #ffffff">
             <div class="container">
                 <div class="row">
-                    <div class="text-center col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    @foreach ($bringing as $bringviwelist)
+                    <div class="text-center col-lg-5 col-md-5 col-sm-4 col-xs-3">
                         <div class="logo-background">
                             <figure class="business-meeting-img">
-                                <img src="{{asset('assets/img/logo/business-meeting.png')}}" alt="business-meeting" />
+                                <img src="{{asset('assets/img/logo')}}/{{$bringviwelist->backimg}}" alt="business-meeting" class="pull-right img-responsive"/>
                             </figure>
                             <!--logo-background-->
                         </div>
                         <!--text-center-->
                     </div>
-                    <div class="business-box col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <h1 class="light-blue-color">Bringing new look to your business!</h1>
-                        <h2 class="black-font">WE Helping small business</h2>
-                        <p>We have packages for successful businesses. Go ahead and make you known everywhere. Find your needs among our services. </p>
-                        <p class="blue-color regular-font">Trust us. We are the ideal partner to help you grow well and quickly. Join us now for services such as:</p>
-                        <ul>
-                            <li style="background: url({{asset('assets/img/icons/li-icon.png')}}) no-repeat left 7px;">Web development. </li>
-                            <li style="background: url({{asset('assets/img/icons/li-icon.png')}}) no-repeat left 7px;">Equipments. </li>
-                            <li style="background: url({{asset('assets/img/icons/li-icon.png')}}) no-repeat left 7px;">Security. </li>
-                            <li style="background: url({{asset('assets/img/icons/li-icon.png')}}) no-repeat left 7px;">Guidance. </li>
-                        </ul>
+                    <div class="business-box col-lg-7 col-md-7 col-sm-8 col-xs-9 divtextcss" style="margin-top: 0px">
+                        <div>
+                            {!! $bringviwelist->description !!}
+                        </div>
+
+
                         <div class="transparent-btn pull-left">
-                            <a href="{{route('contact')}}">Contact Us</a>
+                            <a href="{{$bringviwelist->link}}" target="_blank">Contact Us</a>
                         </div>
                         <!--business-box-->
                     </div>
                     <!--row-->
+                    @endforeach
+
+
                 </div>
                 <!--container-->
             </div>
             <!--paddingBox-->
         </div>
+
+    @endif
+
         <!--main-contentbox-->
     </div>
 
@@ -313,7 +357,7 @@
                             <!--partner-heading-->
                         </div>
 
-                        <div class="partners col-lg-10 col-md-9 col-sm-12 col-xs-12">
+                        <div class="partners col-lg-10 col-md-12 col-sm-12 col-xs-12">
 
 
 
@@ -331,11 +375,12 @@
                                 </aside>
                             @endforeach
 
-
-
                             <!--partners-->
                         </div>
-                            <a href="{{route('parnerliste')}}" class="btn btn-sm btn-primary">More Partners</a>
+
+                        <div class="col-lg-10 col-md-9 col-sm-12 col-xs-12">
+                        <a href="{{route('parnerliste')}}" class="btn btn-sm btn-primary">More Partners</a>
+                        </div>
                     <!--paddingBox-->
                     </aside>
                     <!--row-->

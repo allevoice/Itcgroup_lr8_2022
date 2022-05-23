@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePartnersTable extends Migration
+class CreateBringingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,13 @@ class CreatePartnersTable extends Migration
      */
     public function up()
     {
-        Schema::create('partners', function (Blueprint $table) {
+        Schema::create('bringings', function (Blueprint $table) {
             $table->id();
-            $table->string('titlepartner', 250);
-            $table->string('titleservices', 250);
-            $table->longText('servicepartner', 250);
-            $table->string('linkpartner')->nullable();
-            $table->longText('backimgpartner')->nullable();
-            $table->text('imgpartner')->nullable();
+            $table->longText('backimg')->nullable();
+            $table->longText('description');
+            $table->longText('link')->nullable();
             $table->string('status')->nullable();
             $table->string('langues')->nullable();
-            $table->string('level')->nullable();
             $table->string('iduser')->nullable();
             $table->softDeletes()->nullable();
             $table->timestamps();
@@ -37,6 +33,6 @@ class CreatePartnersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('partners');
+        Schema::dropIfExists('bringings');
     }
 }

@@ -13,18 +13,154 @@
                 font-weight: bold;
             }
             /*ce style est pour les LI de TinyCME */
-            .persoimage ul, .persoimage li{
+            .divtextcss .persoimage ul, .divtextcss .persoimage ol, .divtextcss .persoimage li{
                 list-style-type: none;
                 {{--list-style-image: url('{{asset('')}}assets/img/logo/small-logo.png');--}}
                 margin: 0;
-                padding-left: 15px;
+                padding-left: 30px;
                 /*padding: 36px 0 36px 84px;*/
                 background-image: url('{{asset('assets/img/logo/small-logo.png')}}');
                 background-repeat: no-repeat;
                 background-position: left center;
-                background-size: 10px;
+                background-size: 20px;
             }
+            .divtextcss .monpa, .divtextcss p {
+                margin: 0px 0px 0px 0px;
+                padding: 0px 0px 0px 0px;
+            }
+
+            /*Code lightboxe image dans services*/
+
+            @font-face {
+                font-family: 'lg';
+                src: url("{{asset('assets')}}/fonts/lg.ttf?22t19m") format("truetype"), url("{{asset('assets')}}/fonts/lg.woff?22t19m") format("woff"), url("{{asset('assets')}}/fonts/lg.svg?22t19m#lg") format("svg");
+                font-weight: normal;
+                font-style: normal;
+                font-display: block;
+            }
+
+
+            .demo-gallery > ul {
+                margin-bottom: 0;
+            }
+            .demo-gallery > ul > li {
+                float: left;
+                margin-bottom: 15px;
+                margin-right: 20px;
+                width: 200px;
+            }
+            .demo-gallery > ul > li a {
+                border: 3px solid #FFF;
+                border-radius: 3px;
+                display: block;
+                overflow: hidden;
+                position: relative;
+                float: left;
+            }
+            .demo-gallery > ul > li a > img {
+                -webkit-transition: -webkit-transform 0.15s ease 0s;
+                -moz-transition: -moz-transform 0.15s ease 0s;
+                -o-transition: -o-transform 0.15s ease 0s;
+                transition: transform 0.15s ease 0s;
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+                height: 100%;
+                width: 100%;
+            }
+            .demo-gallery > ul > li a:hover > img {
+                -webkit-transform: scale3d(1.1, 1.1, 1.1);
+                transform: scale3d(1.1, 1.1, 1.1);
+            }
+            .demo-gallery > ul > li a:hover .demo-gallery-poster > img {
+                opacity: 1;
+            }
+            .demo-gallery > ul > li a .demo-gallery-poster {
+                background-color: rgba(0, 0, 0, 0.1);
+                bottom: 0;
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                -webkit-transition: background-color 0.15s ease 0s;
+                -o-transition: background-color 0.15s ease 0s;
+                transition: background-color 0.15s ease 0s;
+            }
+            .demo-gallery > ul > li a .demo-gallery-poster > img {
+                left: 50%;
+                margin-left: -10px;
+                margin-top: -10px;
+                opacity: 0;
+                position: absolute;
+                top: 50%;
+                -webkit-transition: opacity 0.3s ease 0s;
+                -o-transition: opacity 0.3s ease 0s;
+                transition: opacity 0.3s ease 0s;
+            }
+            .demo-gallery > ul > li a:hover .demo-gallery-poster {
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+            .demo-gallery .justified-gallery > a > img {
+                -webkit-transition: -webkit-transform 0.15s ease 0s;
+                -moz-transition: -moz-transform 0.15s ease 0s;
+                -o-transition: -o-transform 0.15s ease 0s;
+                transition: transform 0.15s ease 0s;
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+                height: 100%;
+                width: 100%;
+            }
+            .demo-gallery .justified-gallery > a:hover > img {
+                -webkit-transform: scale3d(1.1, 1.1, 1.1);
+                transform: scale3d(1.1, 1.1, 1.1);
+            }
+            .demo-gallery .justified-gallery > a:hover .demo-gallery-poster > img {
+                opacity: 1;
+            }
+            .demo-gallery .justified-gallery > a .demo-gallery-poster {
+                background-color: rgba(0, 0, 0, 0.1);
+                bottom: 0;
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                -webkit-transition: background-color 0.15s ease 0s;
+                -o-transition: background-color 0.15s ease 0s;
+                transition: background-color 0.15s ease 0s;
+            }
+            .demo-gallery .justified-gallery > a .demo-gallery-poster > img {
+                left: 50%;
+                margin-left: -10px;
+                margin-top: -10px;
+                opacity: 0;
+                position: absolute;
+                top: 50%;
+                -webkit-transition: opacity 0.3s ease 0s;
+                -o-transition: opacity 0.3s ease 0s;
+                transition: opacity 0.3s ease 0s;
+            }
+            .demo-gallery .justified-gallery > a:hover .demo-gallery-poster {
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+            .demo-gallery .video .demo-gallery-poster img {
+                height: 48px;
+                margin-left: -24px;
+                margin-top: -24px;
+                opacity: 0.8;
+                width: 48px;
+            }
+            .demo-gallery.dark > ul > li a {
+                border: 3px solid #04070a;
+            }
+            .home .demo-gallery {
+                padding-bottom: 80px;
+            }
+            /*Code lightboxe image dans services*/
+
+
         </style>
+
+
+
         <link rel="stylesheet" href="{{asset('assets/css/all-stylesheets.css')}}" type="text/css" />
         <link rel="stylesheet" href="{{asset('assets/css/bootstrap/bootstrap.min.css')}}" type="text/css" />
         <link rel="stylesheet" href="{{asset('assets/css/moncss.css')}}" type="text/css" />
@@ -35,6 +171,8 @@
         <link rel="stylesheet" href="{{asset('assets/css/animation.css')}}" type="text/css" />
         <link rel="stylesheet" href="{{asset('assets/css/custom-layout.css')}}" type="text/css" />
         <link rel="stylesheet" href="{{asset('assets/css/special-classes.css')}}" type="text/css" />
+
+
 
 
         <link rel="stylesheet" href="{{asset('assets/css/fonts.css')}}" type="text/css" />
@@ -48,6 +186,9 @@
         <link rel="stylesheet" href="{{asset('assets/css/owl-carousel/css/owl.transitions.css')}}" type="text/css" />
         <link rel="stylesheet" href="{{asset('assets/css/owl-carousel/css/animate.css')}}" type="text/css" />
         <link rel="stylesheet" href="{{asset('assets/css/mobile.css')}}" type="text/css" />
+
+        <link href="{{asset('assets')}}/lightgallery.css" rel="stylesheet">
+
 
     </head>
 
@@ -200,6 +341,14 @@
     <script type="text/javascript" src="{{asset('assets/js/jquery.unveilEffects.js')}}"></script>
     <!-- Custom Scripts -->
     <script src="{{asset('assets/js/custom.js')}}"></script>
+<script src="{{asset('assets')}}/lightgallery_1.js"></script>
+<script src="{{asset('assets')}}/lg-zoom.js"></script>
+<script>
+    lightGallery(document.getElementById('lightgallery'));
+</script>
+
+
+
 
 
 

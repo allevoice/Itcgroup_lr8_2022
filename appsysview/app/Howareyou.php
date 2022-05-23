@@ -5,9 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Bringing extends Model
+class Howareyou extends Model
 {
     protected $guarded = [];
     use SoftDeletes;
-
 }

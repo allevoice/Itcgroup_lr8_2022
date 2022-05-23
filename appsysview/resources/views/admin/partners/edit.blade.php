@@ -67,6 +67,17 @@
                         </div>
 
 
+                        <div class="form-group @error('titleservices') is-invalid @enderror">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Service</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="titleservices" value="{{$data->titleservices}}" placeholder="Titre De l'info bulble">
+                                @error('titleservices')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+
                         <div class="form-group @error('descdetail') is-invalid @enderror">
                             <label for="inputEmail3" class="col-sm-3 control-label">Contenue</label>
                             <div class="col-sm-9">

@@ -141,11 +141,15 @@
                         </aside>
                         <!--col-lg-3-->
                     </div>
+
+
+
+
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <aside class="advisor-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <figure class="advisor-img2"><img alt="advisor-img2" src="{{asset('assets/img/services/advisor-img1.png')}}"></figure>
+                            <figure class="advisor-img2"><img alt="advisor-img2" src="{{asset('assets/img/about/itAdv.jpg')}}"></figure>
                             <div class="advisor-info text-right" style="width:140px; margin-right: -15px">
-                                <h3>Valerie<span><hr>Chief Advisor</span></h3>
+                                <h3>Ing. Davillière Davidson Daguillard<span><hr>IT Assistant</span></h3>
                                 <!--
                                 <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                 advisor-info-->
@@ -163,11 +167,15 @@
                         </aside>
                         <!--col-lg-3-->
                     </div>
+
+
+
+
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <aside class="advisor-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <figure class="advisor-img3"><img alt="advisor-img3" src="{{asset('assets/img/services/advisor-img1.png')}}"></figure>
+                            <figure class="advisor-img3"><img alt="advisor-img3" src="{{asset('assets/img/about/rjweb2.jpg')}}"></figure>
                             <div class="advisor-info text-right" style="width:140px; margin-right: -15px">
-                                <h3>Cassy <span><hr>Chief Advisor</span></h3>
+                                <h3>Joseph Rodney <span><hr>Web developer</span></h3>
                                 <!--
                                 <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                 advisor-info-->
@@ -185,28 +193,36 @@
                         </aside>
                         <!--col-lg-3-->
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <aside class="advisor-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <figure class="advisor-img4"><img alt="advisor-img4" src="{{asset('assets/img/services/advisor-img1.png')}}"></figure>
-                            <div class="advisor-info text-right" style="width:140px; margin-right: -15px">
-                                <h3>NewOne <span><hr>Chief Advisor</span></h3>
-                                <!--
-                                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                advisor-info-->
-                            </div>
-                            <div class="social-icons">
-                                <ul>
-                                    <li><a href="#" class="fa fa-facebook"></a></li>
-                                    <li><a href="#" class="fa fa-twitter"></a></li>
 
-                                </ul>
-                                <!--social-icons-->
-                            </div>
-                            <!--advisor-box-->
-                        </aside>
-                        <!--col-lg-3-->
-                    </div>
-                    <!--row-->
+                    {{----}}
+                    {{----}}
+                    {{--<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">--}}
+                        {{--<aside class="advisor-box col-lg-12 col-md-12 col-sm-12 col-xs-12">--}}
+                            {{--<figure class="advisor-img4"><img alt="advisor-img4" src="{{asset('assets/img/services/advisor-img1.png')}}"></figure>--}}
+                            {{--<div class="advisor-info text-right" style="width:140px; margin-right: -15px">--}}
+                                {{--<h3>NewOne <span><hr>Chief Advisor</span></h3>--}}
+                                {{--<!----}}
+                                {{--<p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>--}}
+                                {{--advisor-info-->--}}
+                            {{--</div>--}}
+                            {{--<div class="social-icons">--}}
+                                {{--<ul>--}}
+                                    {{--<li><a href="#" class="fa fa-facebook"></a></li>--}}
+                                    {{--<li><a href="#" class="fa fa-twitter"></a></li>--}}
+
+                                {{--</ul>--}}
+                                {{--<!--social-icons-->--}}
+                            {{--</div>--}}
+                            {{--<!--advisor-box-->--}}
+                        {{--</aside>--}}
+                        {{--<!--col-lg-3-->--}}
+                    {{--</div>--}}
+                    {{--<!--row-->--}}
+               {{----}}
+               {{----}}
+
+
+
                 </div>
                 <!--container-->
             </div>

@@ -23,6 +23,10 @@ class PartnerController extends Controller
             'titlepartner.max'=> 'Le champ titre ne doit pas depasser les :max caractères',
             'titlepartner.min'=> 'Le champ titre ne doit pas inferieur les :min caractères',
 
+            'titleservices.required'=> 'Le champ titre ne doit pas etre vide',
+            'titleservices.max'=> 'Le champ titre ne doit pas depasser les :max caractères',
+            'titleservices.min'=> 'Le champ titre ne doit pas inferieur les :min caractères',
+
             'linkpartner.required'=> 'Le champ Url ne doit pas etre vide',
             'linkpartner.url'=> 'Ce n\'est pas un adresse et doit ecrire de cette facon "http://www.mondomaine.com"',
         ];
@@ -65,6 +69,7 @@ class PartnerController extends Controller
         $this->messageerreur();
 
         $titlepartner = $request->titlepartner;
+        $titleservices = $request->titleservices;
         $servicepartner = $request->servicepartner;
         $linkpartner = $request->linkpartner;
         $status = '0';
@@ -75,12 +80,14 @@ class PartnerController extends Controller
         //verification et envoie des message
         $request->validate([
             'titlepartner'=>'required|min:5|max:250',
+            'titleservices'=>'required|min:5|max:250',
             'linkpartner'=>'required|url'
         ],$this->messageerreur());
 
         //insertion de nouvelle de donnee
         $data= new Partner();
         $data->titlepartner = $titlepartner;
+        $data->titleservices = $titleservices;
         $data->servicepartner = $servicepartner;
         $data->linkpartner = $linkpartner;
         $data->status = $status;
@@ -137,6 +144,7 @@ class PartnerController extends Controller
     {
         $id = $partner->id;
         $titlepartner = $request->titlepartner;
+        $titleservices = $request->titleservices;
         $servicepartner = $request->servicepartner;
         $linkpartner = $request->linkpartner;
         $status = $request->status;
@@ -216,11 +224,13 @@ class PartnerController extends Controller
 
             $request->validate([
                 'titlepartner'=>'required|min:5|max:250',
+                'titleservices'=>'required|min:5|max:250',
                 'linkpartner'=>'required|url'
             ],$message_fr);
 
             $partner->update([
                 'titlepartner' => $titlepartner,
+                'titleservices' => $titleservices,
                 'servicepartner' => $servicepartner,
                 'linkpartner' => $linkpartner,
                 'status' => $status,
