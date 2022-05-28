@@ -137,6 +137,7 @@
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
     </style>
+
     <script>
         // Open the Modal
         function openModal() {
@@ -259,32 +260,32 @@
                                                     {{--</a>--}}
                                                 {{--</li>--}}
 
-                                                <li class="col-md-4"  data-src="{{asset('assets/img/services/services-img1.jpg')}}" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+                                                <li class="col-md-5"  data-src="{{asset('assets/img/services/services-img1.jpg')}}" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
                                                     <a href="#">
                                                         <img class="img-responsive" src="{{asset('assets/img/services/services-img1.jpg')}}" alt="Thumb-1">
                                                     </a>
                                                 </li>
-                                                <li class="col-md-4"  data-src="{{asset('assets/img/services/services-img4.jpg')}}" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+                                                <li class="col-md-5"  data-src="{{asset('assets/img/services/services-img4.jpg')}}" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
                                                     <a href="#">
                                                         <img class="img-responsive" src="{{asset('assets/img/services/services-img4.jpg')}}" alt="Thumb-1">
                                                     </a>
                                                 </li>
-                                                <li class="col-md-4"  data-src="{{asset('assets/img/services/services-img3.jpg')}}" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+                                                <li class="col-md-5"  data-src="{{asset('assets/img/services/services-img3.jpg')}}" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
                                                     <a href="#">
                                                         <img class="img-responsive" src="{{asset('assets/img/services/services-img3.jpg')}}" alt="Thumb-1">
                                                     </a>
                                                 </li>
-                                                <li class="col-md-4"  data-src="{{asset('assets/img/services/services-img2.jpg')}}" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+                                                <li class="col-md-5"  data-src="{{asset('assets/img/services/services-img2.jpg')}}" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
                                                     <a href="#">
                                                         <img class="img-responsive" src="{{asset('assets/img/services/services-img2.jpg')}}" alt="Thumb-1">
                                                     </a>
                                                 </li>
-                                                <li class="col-md-4"  data-src="{{asset('assets/img/services/services-img1.jpg')}}" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+                                                <li class="col-md-5"  data-src="{{asset('assets/img/services/services-img1.jpg')}}" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
                                                     <a href="#">
                                                         <img class="img-responsive" src="{{asset('assets/img/services/services-img1.jpg')}}" alt="Thumb-1">
                                                     </a>
                                                 </li>
-                                                <li class="col-md-4"  data-src="{{asset('assets/img/services/test.png')}}" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+                                                <li class="col-md-5"  data-src="{{asset('assets/img/services/test.png')}}" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
                                                     <a href="#">
                                                         <img class="img-responsive" src="{{asset('assets/img/services/test.png')}}" alt="Thumb-1">
                                                     </a>

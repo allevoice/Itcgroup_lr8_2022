@@ -12,11 +12,18 @@
                 font-size: x-small;
                 font-weight: bold;
             }
+            #presoh1,#presoh2,#presoh3{
+                color:#000000;
+                margin-bottom: 2%;
+                margin-top: 5%;
+            }
+
             /*ce style est pour les LI de TinyCME */
             .divtextcss .persoimage ul, .divtextcss .persoimage ol, .divtextcss .persoimage li{
                 list-style-type: none;
-                {{--list-style-image: url('{{asset('')}}assets/img/logo/small-logo.png');--}}
-                margin: 0;
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 0;
                 padding-left: 30px;
                 /*padding: 36px 0 36px 84px;*/
                 background-image: url('{{asset('assets/img/logo/small-logo.png')}}');
@@ -24,8 +31,13 @@
                 background-position: left center;
                 background-size: 20px;
             }
+            .persoimage ul{margin-top: 3%;}
+
             .divtextcss .monpa, .divtextcss p {
-                margin: 0px 0px 0px 0px;
+                margin-top: 3px;
+                margin-bottom: 0px;
+                margin-right: 0px;
+                margin-left: 0px;
                 padding: 0px 0px 0px 0px;
             }
 

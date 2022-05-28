@@ -37,6 +37,16 @@ if(!function_exists('statuscmd')){
     }
 }
 
+if(!function_exists('limitmanueltext')){
+    function limitmanueltext($content,$limit=false){
+
+        if (strlen($content) > 10)
+            $new_string = substr($content, 0, $limit) . '...';
+        return $new_string;
+        //return $content;
+    }
+}
+
 if(!function_exists('levelcmd')){
     function levelcmd($id=NULL){
         if($id==NULL){

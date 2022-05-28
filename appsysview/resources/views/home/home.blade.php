@@ -35,9 +35,9 @@
                                                     <img src="{{asset('assets/img/icons/invest-imgHover.png')}}" alt="invest-imgHover" />
                                                 </figure>
                                                 <h4 class="white-color">installation</h4>
-                                                <p class="regular-font">{{Illuminate\Support\Str::limit('Energy system: solar panel, inverter and othersEnergy system: solar panel, inverter and othersEnergy system: solar panel, inverter and othersEnergy system: solar panel, inverter and othersEnergy system: solar panel, inverter and others', 20)}}</p>
+                                                <p class="regular-font">{{limitmanueltext('Energy system: solar panel, inverter and others Energy system: solar panel, inverter and others',50)}}</p>
                                                 <div class="transparent-btn btn1">
-                                                    <a href="{{route('contact')}}">Contact</a>
+                                                    {{--<a href="{{route('contact')}}">Contact</a>--}}
                                                     <a href="{{route('service_details','220394')}}">Link</a>
                                                 </div>
                                             </div>
