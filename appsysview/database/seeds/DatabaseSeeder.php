@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(HelpingviewSeeder::class);
         $this->call(HowareyouSeeder::class);
         $this->call(BringingSeeder::class);
+        $this->call(ServiceoffertSeeder::class);
     }
 }

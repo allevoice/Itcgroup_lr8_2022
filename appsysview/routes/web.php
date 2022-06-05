@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,26 +19,22 @@ Route::get('/', function () {
 */
 
 //page erreur 404
+
 Route::fallback(function (){
     return view('404');
 });
 
+//abort(404,'What code view');
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/partner', 'HomeController@parnerliste')->name('parnerliste');
+Route::get('/services', 'HomeController@serviceofferthome')->name('services');
+Route::get('service_detail/{code}', 'HomeController@servicedetailshome')->name('service_details');
 
 
 Route::get('/about', function () {
     return view('home/about');
 })->name('about');
-
-Route::get('services', function () {
-    return view('home/services');
-})->name('services');
-
-Route::get('service_detail/{code}', function () {
-    return view('home/service_detail');
-})->name('service_details');
 
 Route::get('projet', function () {
     return view('home/projects');
@@ -84,6 +80,22 @@ Route::get('/admin','DashpageController@index')->name('adminpage');
 //Slide Shows
 
 
+
+/*========================Les routes de services Start===============================*/
+Route::resource('servicesadmin','ServiceoffertController')->names([
+    'index'=> 'listserve',
+    'show',
+    'create'=> 'newserve',
+    'store'=>'insertserve',
+    'edit'=>'editserve',
+    'update' =>'addupdserve',
+    'destroy'=>'delserve'
+]);
+Route::get('/imgupdate/{slug}','ServiceoffertController@updimages')->name('editimgdata');
+Route::get('/servicesadmindel','ServiceoffertController@sofderestore')->name('servelstdel');
+Route::get('/restoreservicesadmin/{id}','ServiceoffertController@restoredestroy')->name('restdelserve');
+Route::delete('/destoreservicesadmin/{id}','ServiceoffertController@destoredefinitely')->name('servedelete');
+/*========================Les routes de services END===============================*/
 
 
 

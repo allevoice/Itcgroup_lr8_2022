@@ -39,7 +39,7 @@ font-size: 16px;">
                         <a href="#">Slide show</a>
                     </li>
                     <li>
-                        <a href="#">Services offert</a>
+                        <a href="{{route('listserve')}}">Services offert</a>
                     </li>
                     <li>
                         <a href="{{route('listhowareyou')}}">How are u</a>

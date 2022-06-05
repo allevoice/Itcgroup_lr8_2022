@@ -52,124 +52,54 @@
                 <div class="row text-center">
                     <h2 class="black-font">We offer Different Services</h2>
                     <p class="regular-font">We have a wide range of quality services at the best price </p>
+
+
+                    <div class=" text-center" style="height:auto;padding-top: 2%;padding-bottom: 2%;">
+                        {{ $serviceoffert->links('pagination::bootstrap-4') }}
+                    </div>
                     <div class="spacer"></div>
-                    <aside class="services-plans col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <figure>
-                            <img src="{{asset('assets/img/services/services-img1.jpg')}}" alt="" />
-                        </figure>
-                        <div class="service-innerbox greyBg">
-                            <div class="icon-holder BlueBg" data-effect="helix">
-                                <span><img src="{{asset('assets/img/icons/invest-img2.png')}}" alt="invest-img2" /></span>
+
+
+                    @if (count($serviceoffert) > 0)
+                        @foreach ($serviceoffert as $liste)
+                        <aside class="services-plans col-lg-3 col-md-3 col-sm-6 col-xs-12" style="margin-bottom: 2%">
+
+
+                            <figure>
+                                @if ($liste->img1 !=Null)
+                                    <img src="{{asset('assets/img/services/')}}/{{$liste->img1}}" alt="" height="200"/>
+                                @else
+                                    <img src="{{asset('assets/img/services/default/services-img1.jpg')}}" alt="" height="200"/>
+                                @endif
+                            </figure>
+                            <div class="service-innerbox greyBg">
+                                <div class="icon-holder BlueBg" data-effect="helix">
+                                    @if($liste->whiteicone !=NULL)
+                                        <span><img src="{{asset('assets/img/services')}}/{{$liste->whiteicone}}" alt="invest-img2" /></span>
+                                    @else
+                                        <span><img src="{{asset('assets/img/services/defaultlight.png')}}" alt="invest-img2" /></span>
+                                    @endif
+                                </div>
+                                <h4>{{Illuminate\Support\Str::limit($liste->title,10)}}</h4>
+                                <p>{{limitmanueltext($liste->titleinfo,15)}}</p>
+                                <!--service-innerbox-->
+                                <a href="{{route('service_details',$liste->codeservice)}}" class="btn btn-sm btn-primary">More</a>
                             </div>
-                            <h4>Installation</h4>
-                            <p>For your installation needs: inverter, solar panel, wireless printing, cash register, network etc.</p>
-                            <!--service-innerbox-->
-                        </div>
-                        <!--services-plans-->
-                    </aside>
+                            <!--services-plans-->
+                        </aside>
+                    @endforeach
+                    @endif
 
 
 
-                    <aside class="services-plans col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <figure>
-                            <img src="{{asset('assets/img/services/services-img2.jpg')}}" alt="" />
-                        </figure>
-                        <div class="service-innerbox greyBg">
-                            <div class="icon-holder BlueBg" data-effect="helix">
-                                <span><img src="{{asset('assets/img/icons/funds-img2.png')}}" alt="invest-img2" /></span>
-                            </div>
-                            <h4>Web development</h4>
-                            <p>We offer tailor-made developments such as: website, online platform, application etc.</p>
-                            <!--service-innerbox-->
-                        </div>
-                        <!--services-plans-->
-                    </aside>
-                    <aside class="services-plans col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <figure>
-                            <img src="{{asset('assets/img/services/services-img3.jpg')}}" alt="" />
-                        </figure>
-                        <div class="service-innerbox greyBg">
-                            <div class="icon-holder BlueBg" data-effect="helix">
-                                <span><img src="{{asset('assets/img/icons/headset-img2.png')}}" alt="invest-img2" /></span>
-                            </div>
-                            <h4>Support</h4>
-                            <p>We are available to support you in all your IT concerns. Contact our teams 6 days a week.</p>
-                            <!--service-innerbox-->
-                        </div>
-                        <!--services-plans-->
-                    </aside>
-                    <aside class="services-plans col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <figure>
-                            <img src="{{asset('assets/img/services/services-img4.jpg')}}" alt="" />
-                        </figure>
-                        <div class="service-innerbox greyBg">
-                            <div class="icon-holder BlueBg" data-effect="helix">
-                                <span><img src="{{asset('assets/img/icons/cast-img2.png')}}" alt="invest-img2" /></span>
-                            </div>
-                            <h4>Telecommunication</h4>
-                            <p>This is our specialty. Networks, server, internet etc we are here to serve you. Make us your supplier.</p>
-                            <!--service-innerbox-->
-                        </div>
-                        <!--services-plans-->
-                    </aside>
-                    <div class="spacer"></div>
-                    <aside class="services-plans col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <figure>
-                            <img src="{{asset('assets/img/services/services-img5.jpg')}}" alt="" />
-                        </figure>
-                        <div class="service-innerbox greyBg">
-                            <div class="icon-holder BlueBg" data-effect="helix">
-                                <span><img src="{{asset('assets/img/icons/storage-img2.png')}}" alt="invest-img2" /></span>
-                            </div>
-                            <h4>Data management</h4>
-                            <p>We process and secure your data in the cloud.</p>
-                            <!--service-innerbox-->
-                        </div>
-                        <!--services-plans-->
-                    </aside>
-                    <aside class="services-plans col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <figure>
-                            <img src="{{asset('assets/img/services/services-img6.jpg')}}" alt="" />
-                        </figure>
-                        <div class="service-innerbox greyBg">
-                            <div class="icon-holder BlueBg" data-effect="helix">
-                                <span><img src="{{asset('assets/img/icons/retirement-img2.png')}}" alt="invest-img2" /></span>
-                            </div>
-                            <h4>Security</h4>
-                            <p>We have all kinds of security cameras. Infrared etc. Control everything with your smartphone.</p>
-                            <!--service-innerbox-->
-                        </div>
-                        <!--services-plans-->
-                    </aside>
-                    <aside class="services-plans col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <figure>
-                            <img src="{{asset('assets/img/services/services-img3.jpg')}}" alt="" />
-                        </figure>
-                        <div class="service-innerbox greyBg">
-                            <div class="icon-holder BlueBg" data-effect="helix">
-                                <span><img src="{{asset('assets/img/icons/do-not-disturb-img2.png')}}" alt="invest-img2" /></span>
-                            </div>
-                            <h4>Saving & Investments</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incidid unt ut labore.</p>
-                            <!--service-innerbox-->
-                        </div>
-                        <!--services-plans-->
-                    </aside>
-                    <aside class="services-plans col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <figure>
-                            <img src="{{asset('assets/img/services/services-img4.jpg')}}" alt="" />
-                        </figure>
-                        <div class="service-innerbox greyBg">
-                            <div class="icon-holder BlueBg" data-effect="helix">
-                                <span><img src="{{asset('assets/img/icons/do-not-disturb-img2.png')}}" alt="invest-img2" /></span>
-                            </div>
-                            <h4>Retirements</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incidid unt ut labore.</p>
-                            <!--service-innerbox-->
-                        </div>
-                        <!--services-plans-->
-                    </aside>
+
+
+
+
                     <!--row-->
+                </div>
+                <div class=" text-center" style="height:auto;padding-top: 2%;padding-bottom: 2%;">
+                    {{ $serviceoffert->links('pagination::bootstrap-4') }}
                 </div>
                 <!--container-->
             </div>

@@ -9,6 +9,8 @@
 
     <div class="main-contentbox">
 
+
+    {{--@if (isset($serviv) AND count($serviv) > 0)--}}
         <!--===============================================-->
         <!--========= We offer Different Services =========-->
         <!--===============================================-->
@@ -19,26 +21,35 @@
                     <p class="regular-font">We have the service you need, with international quality.</p>
                     <div class="spacer"></div>
 
-
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 imghvr-push-down">
+                    @if (count($serviv) > 0)
+                        @foreach ($serviv as $lst)
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 imghvr-push-down">
                         <div class="services-box greyBg col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div>
                                 <figure data-effect="pop">
-                                    <img src="{{asset('assets/img/icons/invest-img.png')}}" alt="invest-img" />
+                                    @if($lst->blueicone !=NULL)
+                                        <img src="{{asset('assets/img/services')}}/{{$lst->blueicone}}" alt="invest-img" />
+                                    @else
+                                        <img src="{{asset('assets/img/services/defaultgreen.png')}}" alt="invest-img" />
+                                    @endif
                                 </figure>
-                                <h4 class="black-color">installation</h4>
+                                <h4 class="black-color">{{$lst->title}}</h4>
                                 <div class="services-info-con">
                                     <div class="services-info">
                                         <div class="services-infoBox">
                                             <div>
                                                 <figure>
-                                                    <img src="{{asset('assets/img/icons/invest-imgHover.png')}}" alt="invest-imgHover" />
+                                                    @if($lst->whiteicone !=NULL)
+                                                        <img src="{{asset('assets/img/services')}}/{{$lst->whiteicone}}" alt="invest-imgHover" />
+                                                    @else
+                                                        <img src="{{asset('assets/img/services/defaultlight.png')}}" alt="invest-imgHover" />
+                                                    @endif
                                                 </figure>
-                                                <h4 class="white-color">installation</h4>
-                                                <p class="regular-font">{{limitmanueltext('Energy system: solar panel, inverter and others Energy system: solar panel, inverter and others',50)}}</p>
+                                                <h4 class="white-color">{{$lst->title}}</h4>
+                                                <p class="regular-font">{{limitmanueltext($lst->titleinfo,50)}}</p>
                                                 <div class="transparent-btn btn1">
                                                     {{--<a href="{{route('contact')}}">Contact</a>--}}
-                                                    <a href="{{route('service_details','220394')}}">Link</a>
+                                                    <a href="{{route('service_details',$lst->codeservice)}}">Link</a>
                                                 </div>
                                             </div>
                                             <!--services-infoBox-->
@@ -51,108 +62,8 @@
                         </div>
                         <!--col-lg-3-->
                     </div>
-
-
-
-
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 imghvr-push-down">
-                        <div class="services-box greyBg col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div>
-                                <figure data-effect="pop">
-                                    <img src="{{asset('assets/img/icons/funds-img.png')}}" alt="funds-img" />
-                                </figure>
-                                <h4 class="black-color">Web development</h4>
-                                <div class="services-info-con">
-                                    <div class="services-info">
-                                        <div class="services-infoBox">
-                                            <div>
-                                                <figure>
-                                                    <img src="{{asset('assets/img/icons/funds-imgHover.png')}}" alt="funds-imgHover" />
-                                                </figure>
-                                                <h4 class="white-color">Web development</h4>
-                                                <p class="regular-font">Computer system development such as: platform, website etc.</p>
-                                                <div class="transparent-btn btn1">
-                                                    <a href="{{route('contact')}}">Contact</a>
-                                                </div>
-                                            </div>
-                                            <!--services-infoBox-->
-                                        </div>
-                                        <!--services-info-->
-                                    </div>
-                                </div>
-                            </div>
-                            <!--services-box-->
-                        </div>
-                        <!--col-lg-3-->
-                    </div>
-
-
-
-
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 imghvr-push-down">
-                        <div class="services-box greyBg col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div>
-                                <figure data-effect="pop">
-                                    <img src="{{asset('assets/img/icons/saving-img.png')}}" alt="saving-img" />
-                                </figure>
-                                <h4 class="black-color">Telecommunication</h4>
-                                <div class="services-info-con">
-                                    <div class="services-info">
-                                        <div class="services-infoBox">
-                                            <div>
-                                                <figure>
-                                                    <img src="{{asset('assets/img/icons/saving-imgHover.png')}}" alt="saving-imgHover" />
-                                                </figure>
-                                                <h4 class="white-color">Telecommunication</h4>
-                                                <p class="regular-font">Network system, server, wireless, cabling etc.</p>
-                                                <div class="transparent-btn btn1">
-                                                    <a href="{{route('contact')}}">Contact</a>
-                                                </div>
-                                            </div>
-                                            <!--services-infoBox-->
-                                        </div>
-                                        <!--services-info-->
-                                    </div>
-                                </div>
-                            </div>
-                            <!--services-box-->
-                        </div>
-                        <!--col-lg-3-->
-                    </div>
-
-
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 imghvr-push-down">
-                        <div class="services-box greyBg col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div>
-                                <figure data-effect="pop">
-                                    <img src="{{asset('assets/img/icons/retirement-img.png')}}" alt="retirement-img" />
-                                </figure>
-                                <h4 class="black-color">Security</h4>
-                                <div class="services-info-con">
-                                    <div class="services-info">
-                                        <div class="services-infoBox">
-                                            <div>
-                                                <figure>
-                                                    <img src="{{asset('assets/img/icons/retirement-imgHover.png')}}" alt="retirement-imgHover" />
-                                                </figure>
-                                                <h4 class="white-color">Security</h4>
-                                                <p class="regular-font">Telesurveillance system, camera, alarm and others.</p>
-                                                <div class="transparent-btn btn1">
-                                                    <a href="{{route('contact')}}">Contact</a>
-                                                </div>
-                                            </div>
-                                            <!--services-infoBox-->
-                                        </div>
-                                        <!--services-info-->
-                                    </div>
-                                </div>
-                            </div>
-                            <!--services-box-->
-                        </div>
-                        <!--col-lg-3-->
-                    </div>
-
-
+                        @endforeach
+                    @endif
 
 
                     <!--row-->
@@ -161,6 +72,10 @@
             </div>
             <!--paddingBox-->
         </div>
+
+    {{--@endif--}}
+
+
 
 
     @if (count($howareu) > 0)

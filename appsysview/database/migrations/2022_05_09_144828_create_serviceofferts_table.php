@@ -15,6 +15,18 @@ class CreateServiceoffertsTable extends Migration
     {
         Schema::create('serviceofferts', function (Blueprint $table) {
             $table->id();
+            $table->char('codeservice', 200)->unique();
+            $table->char('title', 200);
+            $table->char('titleinfo', 250);
+            $table->longText('description')->nullable();
+            $table->longText('blueicone')->nullable();
+            $table->longText('whiteicone')->nullable();
+            $table->longText('img1')->nullable();
+            $table->string('status')->nullable();
+            $table->string('langues')->nullable();
+            $table->string('level')->nullable();
+            $table->string('iduser')->nullable();
+            $table->softDeletes()->nullable();
             $table->timestamps();
         });
     }
