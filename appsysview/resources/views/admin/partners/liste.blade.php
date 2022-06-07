@@ -5,7 +5,7 @@
 @section('admincontenent')
     <div class="col-md-12">
         <h2>
-            Partners Shows liste
+            Partners liste
             <a href="{{route('newpartner')}}" class="btn btn-sm btn-primary">+</a>
             <a href="{{route('listedelpartener')}}" class="btn btn-xs btn-danger">Del</a>
         </h2>

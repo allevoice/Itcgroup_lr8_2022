@@ -15,8 +15,24 @@ if(!function_exists('photovoiturehelp')){
 */
 
 
+if(!function_exists('levelback')){
+    function levelback($id=NULL){
+        if($id == NULL){
+            $stliste = [
+                '0' => 'Non definis',
+                '1' => 'First',
+                '20' => 'Default',
+            ];
+            return $stliste;
+        }else{
+            return $id == 1 ? 'First' : 'Default';
+        }
+    }
+}
+
 if(!function_exists('statuscmd')){
     function statuscmd($id=NULL){
+
         if($id == NULL){
             $stliste = [
                     '0' => 'Non definis',
@@ -34,6 +50,8 @@ if(!function_exists('statuscmd')){
                     return "Desactiver";break;
             }
         }
+
+
     }
 }
 

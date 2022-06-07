@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Homeslider;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App\Bringing;
@@ -14,6 +15,9 @@ class HomeController extends Controller
 {
 
     public function index(){
+        $slideview  = Homeslider::where('status','1')->orderBy('level', 'ASC')->get();
+        //dd($slideview);
+
         $serviv  = Serviceoffert::where('status','1')->orderBy('level', 'ASC')->limit(4)->get();
 
         $bringing  = Bringing::where('status','1')->limit(1)->get();
@@ -27,7 +31,7 @@ class HomeController extends Controller
         $partner = Partner::where('status','1')->orderBy('level', 'ASC')->limit(8)->get();
 
         //dd($partner);
-        return view('home/home',compact('partner','skill','helpingview','howareu','bringing','serviv'));
+        return view('home/home',compact('partner','skill','helpingview','howareu','bringing','serviv','slideview'));
     }
 
     public function parnerliste(){
@@ -40,6 +44,8 @@ class HomeController extends Controller
         $serviceoffert = Serviceoffert::where('status','1')->orderBy('level', 'ASC')->paginate(8);
         return  view('home/services',compact('serviceoffert'));
     }
+
+
 
     public function servicedetailshome(Request $request){
 

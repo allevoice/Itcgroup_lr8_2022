@@ -1,47 +1,49 @@
 <!--=====================================-->
 <!--============== Banner ===============-->
 <!--=====================================-->
-<div id="carousel-example-generic" class="carousel slide colorback" data-ride="carousel" >
+
+@if (count($slideview) > 0)
+
+
+    <div id="carousel-example-generic" class="carousel slide colorback" data-ride="carousel" >
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <div  class="pull-right">
-                <img src="{{asset('assets/img/banners/home-banner.jpg')}}" class="imgbanner"/>
-            </div>
+        @foreach ($slideview as $lst)
+            <div class="item {{$lst->level == 1 ? 'active' : ''}}">
+                <div  class="pull-right">
+                    @if($lst->backimgview != NULL)
+                        <img src="{{asset('assets/img/slideshow/')}}/{{$lst->backimgview}}" class="imgbanner"/>
+                    @else
+                        <img src="{{asset('assets/img/slideshow/default.jpg')}}" class="imgbanner"/>
+                    @endif
+                </div>
 
-            <div class="viewlogoimg">
-                <img src="{{asset('assets/img/logo/small-logo.png')}}" class="pull-left imglogo"  alt="small-logo" />
-            </div>
+                <div class="viewlogoimg">
+                    @if($lst->logoview != NULL)
+                        <img src="{{asset('assets/img/slideshow/')}}/{{$lst->logoview}}" class="pull-left imglogo"  alt="small-logo" />
+                    @else
+                        <img src="{{asset('assets/img/logo/small-logo.png')}}" class="pull-left imglogo"  alt="small-logo" />
+                    @endif
+                </div>
 
 
-            <div class="carousel-caption img_carousel">
-                <h1>Strong Together For Better Results</h1>
-                <p>We are ITC Group : Information Technology And Communication. We are here to make your dreams come true.</p>
-                <div class="banner-btn transparent-btn">
-                    <a href="{{route('contact')}}">Contact Us Now</a>
+                <div class="carousel-caption img_carousel">
+                    <h1>{{$lst->title}}</h1>
+                    <p>{{$lst->description}}</p>
+                    <div class="banner-btn transparent-btn">
+                        <a href="{{$lst->link}}" target="_blank">Contact Us Now</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endforeach
 
 
-        <div class="item">
-            <div  class="pull-right">
-                <img src="{{asset('assets/img/banners/home-banner2.jpg')}}"  class="imgbanner"/>
-            </div>
 
-            <div class="viewlogoimg">
-                <img src="{{asset('assets/img/logo/small-logo.png')}}" class="pull-left imglogo"  alt="small-logo" />
-            </div>
 
-            <div class="carousel-caption img_carousel">
-                <h1>Strong Together For Better  2</h1>
-                <p>We are ITC Group : Information Technology And Communication. We are here to make your dreams come true.</p>
-                <div class="banner-btn transparent-btn">
-                    <a href="{{route('contact')}}">Contact Us Now</a>
-                </div>
-            </div>
-        </div>
+
+
+
 
 
     </div>
@@ -55,3 +57,4 @@
     </div>
 </div>
 
+@endif

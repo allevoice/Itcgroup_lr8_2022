@@ -81,6 +81,24 @@ Route::get('/admin','DashpageController@index')->name('adminpage');
 
 
 
+/*========================Les routes de Slide show Start===============================*/
+Route::resource('slideadmin','HomesliderController')->names([
+    'index'=> 'listslide',
+    'show',
+    'create'=> 'newslide',
+    'store'=>'insertslide',
+    'edit'=>'editslide',
+    'update' =>'addupdslide',
+    'destroy'=>'delslide'
+]);
+Route::get('/imgupdateslide/{slug}','HomesliderController@updimages')->name('editimgdataslide');
+Route::get('/slidesadmindel','HomesliderController@sofderestore')->name('slidelstdel');
+Route::get('/restoreslideadmin/{id}','HomesliderController@restoredestroy')->name('restdelslide');
+Route::delete('/destoreslidesadmin/{id}','HomesliderController@destoredefinitely')->name('slidedelete');
+/*========================Les routes de Slide show END===============================*/
+
+
+
 /*========================Les routes de services Start===============================*/
 Route::resource('servicesadmin','ServiceoffertController')->names([
     'index'=> 'listserve',

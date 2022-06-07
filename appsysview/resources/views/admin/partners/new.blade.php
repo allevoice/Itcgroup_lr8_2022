@@ -5,7 +5,7 @@
 @section('admincontenent')
     <div class="col-md-12">
         <h2>
-            New Insert
+            New Partner
             <a href="{{route('listpartner')}}" class="btn btn-md btn-primary"><i class="glyphicon glyphicon-arrow-left"></i></a>
         </h2>
 

@@ -36,7 +36,7 @@ font-size: 16px;">
                 <a href="#">Home<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">Slide show</a>
+                        <a href="{{route('listslide')}}">Slide show</a>
                     </li>
                     <li>
                         <a href="{{route('listserve')}}">Services offert</a>
