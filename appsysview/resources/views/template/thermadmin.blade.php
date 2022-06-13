@@ -68,7 +68,7 @@
                             callback('#FF00FF');
                         },
 
-                        /*extended_valid_elements:"ul[class=persoimage],h1[id=presoh1],h2[id=presoh2],h3[id=presoh3],p[class=monpa]",*/
+                        extended_valid_elements:"ul[class=persoimage],h1[id=presoh1],h2[id=presoh2],h3[id=presoh3],p[class=monpa]",
                         //extended_valid_elements:"ul[class=persoimage]",
 
 

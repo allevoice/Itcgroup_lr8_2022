@@ -19,7 +19,7 @@ if(!function_exists('photovoiturehelp')){
 
 if(!function_exists('dataviewhead')){
     function dataviewhead($pagename,$Level){
-           $headdata = App\Headerpage::Where('page',$pagename)->Where('level',$Level)->Where('status',1)->get();
+           $headdata = App\Headerpage::Where('page',$pagename)->Where('level',$Level)->get();
         return $headdata;
     }
 }
