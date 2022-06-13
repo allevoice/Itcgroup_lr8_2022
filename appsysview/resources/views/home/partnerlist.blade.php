@@ -2,9 +2,9 @@
 
 @section('title', 'Accueil')
 
+@section('bannerview')
 
-@section('bannerpage')
-@show
+@endsection
 
 @section('datacontent')
 
@@ -19,7 +19,10 @@
                 <div class="row">
                     <div class="sub-banner-text darkBlueBg regular-font col-lg-5 col-md-5 col-sm-12 col-xs-12" >
                         <div style="padding-left:10%;margin-left: -2%">
-                        <h1>Our <span class="light-font"> Business</span> Partners</h1>
+                            @foreach (dataviewhead('7','a') as $show)
+                                <h1>{{$show->title}}</h1>
+                                <p class="regular-font">{{$show->description}}</p>
+                            @endforeach
                         </div>
                         <!--sub-banner-text-->
                     </div>
@@ -91,13 +94,13 @@
                                                     <span><img src="{{asset('assets/img/partners')}}/{{$partnerlst->imgpartner}}" alt="invest-img2" class="monimgback"/></span>
                                                 </div>
                                             </a>
-                                            <h4 style="font-size:90%">{{Illuminate\Support\Str::limit($partnerlst->titlepartner, 20)}}</h4>
+                                            <h4 style="font-size:90%">{{limitemtxt($partnerlst->titlepartner, 20)}}</h4>
                                             <a href="https://{{$partnerlst->linkpartner}}" target="_blank">
-                                                <span class="btn btn-md btn-primary">{{Illuminate\Support\Str::limit($partnerlst->titleservices, 18)}}</span>
+                                                <span class="btn btn-md btn-primary">{{limitemtxt($partnerlst->titleservices, 18)}}</span>
                                             </a>
                                             <div style="font-size: 100%; margin-bottom: 0;margin-top: 0;">
                                                 {{--{{$partnerlst->servicepartner}}--}}
-                                                {!! Illuminate\Support\Str::limit(html_entity_decode($partnerlst->servicepartner), 50) !!}
+                                                {!! limitemtxt($partnerlst->servicepartner, 50) !!}
                                                 {{--<ul class="persoimage">--}}
                                                     {{--<li>Visionner</li>--}}
                                                     {{--<li>Visionner</li>--}}

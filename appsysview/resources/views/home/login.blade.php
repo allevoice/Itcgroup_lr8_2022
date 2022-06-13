@@ -2,18 +2,26 @@
 
 @section('title', 'Login')
 
-@section('bannerpage')
+@section('bannerview')
 
-@show
-
+@endsection
 
 @section('datacontent')
 
 
+    <style>
+        .logindiv h1{
+            font-size: 26px;
+            text-align: center;
+            font-weight: bold;
+            color: #0A0A0A;
+            margin: 30px auto;
+        }
+    </style>
 
 
     <div class="main-contentbox">
-            <div class="col-md-10 col-md-offset-1" style="background-color:#5bc0de;">
+            <div class="col-md-10 col-md-offset-1" {{--style="background-color:#5bc0de;--}}">
 
                 <div class="col-md-7 hidden-sm hidden-xs" style="margin-left: -2%">
                     @include('template.imglogin')
@@ -24,8 +32,8 @@
 
                     <div class="col-md-12 hidden-xs" style="margin-top: 10%; height:20px; background-color: transparent;"></div>
 
-                    <div class="col-md-12" style="background-color:#ffffff">
-                        <h1 class="text-center" style="color:black">Connexion </h1>
+                    <div class="col-md-12 logindiv">
+                        <h1> Connexion </h1>
 
 
                         <form class="form-horizontal" action="{{route('adminpage')}}">

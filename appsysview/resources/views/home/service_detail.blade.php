@@ -2,16 +2,13 @@
 
 @section('title', 'services')
 
+@section('bannerview')
 
-@section('bannerpage')
-
-@show
-
+@endsection
 
 @section('datacontent')
 
     <div class="main-contentbox">
-
 
 
 
@@ -54,19 +51,12 @@
                 <div class="row">
 
                     <div class="text-center">
-                        <h2 class="black-font">We offer Different Services</h2>
-                        <p class="regular-font">We have a wide range of quality services at the best price </p>
+                        @foreach (dataviewhead('3','b') as $show)
+                            <h2 class="black-font">{{$show->title}}</h2>
+                            <p class="regular-font">{{$show->description}}</p>
+                        @endforeach
                         <div class="spacer visible-lg"></div>
                     </div>
-
-
-
-
-
-
-
-
-
 
 
 
@@ -81,9 +71,11 @@
                                             <img class="img-responsive" src="{{asset('assets/img/services/default/services-img1.jpg')}}" alt="Thumb-1">
                                         @endif
                                     </div>
+                                    <div class="spacer visible-lg"></div>
                                     <div class="col-sm-12 col-xs-7">
                                         {{$service->titleinfo}}
                                     </div>
+                                    <div class="spacer visible-lg"></div>
 
 
                                     <!--row-->

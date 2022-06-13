@@ -2,19 +2,15 @@
 
 @section('title', 'services')
 
+@section('bannerview')
 
-@section('bannerpage')
-
-@show
-
+@endsection
 
 @section('datacontent')
 
 
 
     <div class="main-contentbox">
-
-
 
 
         <!--=====================================-->
@@ -26,8 +22,10 @@
                     <div class="row">
                         <div class="sub-banner-text darkBlueBg regular-font col-lg-6 col-md-5 col-sm-12 col-xs-12" >
                             <div style="padding-left:10%;">
-                                <h1>services</h1>
-                                <p>We offer quality service, tailored to your needs. Join us.</p>
+                                @foreach (dataviewhead('3','a') as $show)
+                                    <h1>{{$show->title}}</h1>
+                                    <p class="regular-font">{{$show->description}}</p>
+                                @endforeach
                             </div>
                             <!--sub-banner-text-->
                         </div>
@@ -50,9 +48,10 @@
         <div class="paddingBox col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="container">
                 <div class="row text-center">
-                    <h2 class="black-font">We offer Different Services</h2>
-                    <p class="regular-font">We have a wide range of quality services at the best price </p>
-
+                    @foreach (dataviewhead('3','b') as $show)
+                        <h2 class="black-font">{{$show->title}}</h2>
+                        <p class="regular-font">{{$show->description}}</p>
+                    @endforeach
 
                     <div class=" text-center" style="height:auto;padding-top: 2%;padding-bottom: 2%;">
                         {{ $serviceoffert->links('pagination::bootstrap-4') }}
@@ -80,8 +79,8 @@
                                         <span><img src="{{asset('assets/img/services/defaultlight.png')}}" alt="invest-img2" /></span>
                                     @endif
                                 </div>
-                                <h4>{{Illuminate\Support\Str::limit($liste->title,10)}}</h4>
-                                <p>{{limitmanueltext($liste->titleinfo,15)}}</p>
+                                <h4>{{limitemtxt($liste->title,10)}}</h4>
+                                <p>{{limitemtxt($liste->titleinfo,25)}}</p>
                                 <!--service-innerbox-->
                                 <a href="{{route('service_details',$liste->codeservice)}}" class="btn btn-sm btn-primary">More</a>
                             </div>

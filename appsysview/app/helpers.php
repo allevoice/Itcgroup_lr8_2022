@@ -1,4 +1,6 @@
 <?php
+
+use App\Headerpage;
 use Illuminate\Support\Arr;
 //On peut ecrire tous les fonction necessaire pour notre projet
 
@@ -14,6 +16,13 @@ if(!function_exists('photovoiturehelp')){
 }
 */
 
+
+if(!function_exists('dataviewhead')){
+    function dataviewhead($pagename,$Level){
+           $headdata = App\Headerpage::Where('page',$pagename)->Where('level',$Level)->Where('status',1)->get();
+        return $headdata;
+    }
+}
 
 if(!function_exists('levelback')){
     function levelback($id=NULL){
@@ -55,15 +64,15 @@ if(!function_exists('statuscmd')){
     }
 }
 
-if(!function_exists('limitmanueltext')){
-    function limitmanueltext($content,$limit=false){
 
-        if (strlen($content) > 10)
-            $new_string = substr($content, 0, $limit) . '...';
-        return $new_string;
-        //return $content;
+if(!function_exists('limitemtxt')){
+    function limitemtxt($content,$limit=false){
+        return substr($content, 0, $limit);
     }
 }
+
+
+
 
 if(!function_exists('levelcmd')){
     function levelcmd($id=NULL){

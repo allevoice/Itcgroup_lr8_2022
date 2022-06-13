@@ -2,9 +2,9 @@
 
 @section('title', 'About')
 
-@section('bannerpage')
+@section('bannerview')
 
-@show
+@endsection
 
 
 @section('datacontent')
@@ -23,8 +23,10 @@
                     <div class="row">
                         <div class="sub-banner-text darkBlueBg regular-font col-lg-6 col-md-5 col-sm-12 col-xs-12" >
                             <div style="padding-left:10%;">
-                                <h1>about us</h1>
-                                <p>We are 100% dedicated to customer satisfaction and relationship built on trust</p>
+                                @foreach (dataviewhead('2','a') as $show)
+                                    <h1>{{$show->title}}</h1>
+                                    <p>{{$show->description}}</p>
+                                @endforeach
                             </div>
                             <!--sub-banner-text-->
                         </div>
@@ -116,8 +118,10 @@
         <div class="greyBg paddingBox col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="container">
                 <div class="row text-center">
-                    <h2>Meet Our Advisors</h2>
-                    <p class="regular-font">Our team is made up of people passionate about technology and business management. Indeed, a wide range of skills and expertise is needed to provide the best solution to our clients in all areas of Information Technology and consulting.</p>
+                    @foreach (dataviewhead('2','b') as $show)
+                        <h2>{{$show->title}}</h2>
+                        <p class="regular-font">{{$show->description}}</p>
+                    @endforeach
                     <div class="spacer"></div>
 
 

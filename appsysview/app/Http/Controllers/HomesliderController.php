@@ -56,7 +56,7 @@ class HomesliderController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/homesliders/new');
     }
 
     /**
@@ -67,7 +67,41 @@ class HomesliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $title = $request->title;
+        $link = $request->link;
+        $description = $request->description;
+        $status = '0';
+        $langues = '1';
+        $level = '20';
+        $iduser= '1';
+
+
+        //verification et envoie des message
+        $request->validate([
+            'title'=>'required|min:5|max:250',
+            'link'=>'url',
+        ],$this->messageerreur());
+
+        //-----------dd('Votre insertion');
+
+        $data= new Homeslider();
+        $data->title = $title;
+        $data->link = $link;
+        $data->description = $description;
+
+        $data->status = $status;
+        $data->langues = $langues;
+        $data->level = $level;
+        $data->iduser = $iduser;
+        $data->save();
+        //redirection vers la page liste
+        return redirect()->route('editslide',$data->id);
+
+
+
+
+
+
     }
 
     /**
@@ -148,10 +182,12 @@ class HomesliderController extends Controller
 
         //Mise a jour que des parties texte
         if($indice == 1){
+
             //avant de faire cette modification on doit verifier 2 chose
             //1- Est ce qu'on modifier le FIRST en DEFAULT si oui on change on restrint/ou annuler cette modification
             //2- Est-ce qu'on modifier un DEFAULT en FIRST si oui on change l'ancien FIRST en DEFAULT
             $info = Homeslider::where('level', '1')->find($id);
+
 
             //Modification des elements de FIRST
             if(isset($info->level)){
@@ -175,15 +211,32 @@ class HomesliderController extends Controller
             }
             //modifcation des element de DEFULT
             else{
+
                 //On doit trouver le FIRST existant pour le passer en DEFAULT et appliquer cette modifcation demander
                 if($level == 1){
                     //on rechercher l'ancien first pour le passer en default et en suite en ajoute la modification a la base
-                    echo 'On veux changer le level';
+
                     //on recherche l'id de l'ancien first
-                    $oldfirst = Homeslider::Where('level','1')->get();
-                    foreach ($oldfirst as $view){
+                    $oldfirst = Homeslider::Where('level','1')->first();
+
+                    //dans le cas ou il n y pas d'ancien
+                    if($oldfirst == NULL){
+                        $request->validate([
+                            'title'=>'required|min:5|max:250',
+                            'link'=>'url',
+                        ],$this->messageerreur());
+
+                        $data->update([
+                            'title' => $title,
+                            'link' => $link,
+                            'status' => '1',
+                            'level' => '1',
+                            'description' => $description
+                        ]);
+                        return redirect(route('editslide',$id));
+                    }else{
                         //ON peut allors changer l'ancient level
-                        $micro = Homeslider::where('id', $view->id)->update(['level' => '20']);
+                        $micro = Homeslider::where('id', $oldfirst->id)->update(['level' => '20']);
                         if($micro == true){
                             $request->validate([
                                 'title'=>'required|min:5|max:250',
@@ -200,6 +253,11 @@ class HomesliderController extends Controller
                             return redirect(route('editslide',$id));
                         }
                     }
+
+
+
+
+
                 }
                 else{
                     //on fait que lancer la modification demander

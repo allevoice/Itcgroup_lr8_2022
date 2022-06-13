@@ -81,6 +81,22 @@ Route::get('/admin','DashpageController@index')->name('adminpage');
 
 
 
+/*========================Les routes de Header Page information   Start===============================*/
+Route::resource('headerpage','HeaderpageController')->names([
+    'index'=> 'listheaderpage',
+    'show',
+    'create',
+    'store',
+    'edit'=>'editheaderpage',
+    'update' =>'addupdheaderpage',
+    'destroy'
+]);
+Route::get('/newtataheaderpage','HeaderpageController@newdata')->name('newinsertemptyheaderpage');
+
+/*========================Les routes de Header Page information   END===============================*/
+
+
+
 /*========================Les routes de Slide show Start===============================*/
 Route::resource('slideadmin','HomesliderController')->names([
     'index'=> 'listslide',

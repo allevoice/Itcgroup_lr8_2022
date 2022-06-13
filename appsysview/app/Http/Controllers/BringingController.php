@@ -116,6 +116,7 @@ class BringingController extends Controller
     public function update(Request $request, Bringing $bringing)
     {
 
+        //dd($request->all());
         //dd('mon code');
         $id = $bringing->id;
         $link = $request->link;

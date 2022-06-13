@@ -2,10 +2,9 @@
 
 @section('title', 'Contact')
 
-@section('bannerpage')
+@section('bannerview')
 
-@show
-
+@endsection
 
 @section('datacontent')
 
@@ -26,8 +25,10 @@
                     <div class="row">
                         <div class="sub-banner-text darkBlueBg regular-font col-lg-6 col-md-5 col-sm-12 col-xs-12" >
                             <div style="padding-left:10%;">
-                                <h1>contact us</h1>
-                                <p>Contact us for any questions or suggestions</p>
+                                @foreach (dataviewhead('6','a') as $show)
+                                    <h1>{{$show->title}}</h1>
+                                    <p>{{$show->description}}</p>
+                                @endforeach
                             </div>
                             <!--sub-banner-text-->
                         </div>
@@ -53,8 +54,11 @@
         <div class="paddingBox col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="container">
                 <div class="row text-center">
-                    <h2 class="black-font">get in touch with us</h2>
-                    <p class="regular-font">Join our support team, available six (6) days </p>
+                    @foreach (dataviewhead('6','b') as $show)
+                        <h2 class="black-font">{{$show->title}}</h2>
+                        <p class="regular-font">{{$show->description}}</p>
+                    @endforeach
+
                     <div class="spacer"></div>
                     <div class="border-top col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="row">
@@ -113,8 +117,11 @@
         <div class="paddingBox greyBg col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="container">
                 <div class="row text-center">
-                    <h2 class="black-font">leave a comment</h2>
-                    <p class="regular-font">Leave comments or questions about the services that interest you.</p>
+                    @foreach (dataviewhead('6','c') as $show)
+                        <h2 class="black-font">{{$show->title}}</h2>
+                        <p class="regular-font">{{$show->description}}</p>
+                    @endforeach
+
                     <div class="spacer"></div>
                     <div class="contact-form col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div id="form_result"></div>

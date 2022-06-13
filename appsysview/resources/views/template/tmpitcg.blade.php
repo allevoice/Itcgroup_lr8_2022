@@ -5,9 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>ITC Group | @yield('title')</title>
-        <link rel="icon" href="{{asset('assets/img/logo/favicon.png')}}'" type="image/png">
-
+        <link rel="icon" href="{{ URL::asset('assets/img/logo/favicon.png') }}" type="image/x-icon"/>
         <style>
+            #gtx-trans{
+                display: none;
+            }
+
             h1{
                 font-size: x-small;
                 font-weight: bold;
@@ -169,6 +172,7 @@
             /*Code lightboxe image dans services*/
 
 
+
         </style>
 
 
@@ -206,13 +210,17 @@
 
 
     <body class="home-page">
+
+
+
 {{--    @section('loadingpage')
         @include('template.loading')
     @show--}}
 
-    @section('bannerpage')
+    @section('bannerview')
         @include('template.bannerview')
     @show
+
 
     @section('menubarre')
         @include('template.menup')
@@ -220,8 +228,7 @@
 
 
 
-
-        @yield('datacontent')
+@yield('datacontent')
 
 
 

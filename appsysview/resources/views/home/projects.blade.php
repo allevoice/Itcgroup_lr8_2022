@@ -2,11 +2,9 @@
 
 @section('title', 'Projects')
 
-@section('bannerpage')
+@section('bannerview')
 
-@show
-
-
+@endsection
 
 @section('datacontent')
 
@@ -26,8 +24,10 @@
                     <div class="row">
                         <div class="sub-banner-text darkBlueBg regular-font col-lg-6 col-md-5 col-sm-12 col-xs-12" >
                             <div style="padding-left:10%;">
-                                <h1>projects </h1>
-                                <p>They are all satisfied with our achievements. Take a look.</p>
+                                @foreach (dataviewhead('4','a') as $show)
+                                    <h1>{{$show->title}}</h1>
+                                    <p>{{$show->description}}</p>
+                                @endforeach
                             </div>
                             <!--sub-banner-text-->
                         </div>
@@ -53,10 +53,10 @@
         <div class="paddingBox col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="container">
                 <div class="row text-center">
-                    <h2 class="black-font">Our Latest Work</h2>
-                    <p>Find our latest achievements, in all areas such as:
-                        security, data management, installation etc.
-                        <br>Our customers are all over the country.</p>
+                    @foreach (dataviewhead('4','b') as $show)
+                        <h2 class="black-font">{{$show->title}}</h2>
+                        <p>{{$show->description}}</p>
+                    @endforeach
                     <!--row-->
                 </div>
                 <!--container-->

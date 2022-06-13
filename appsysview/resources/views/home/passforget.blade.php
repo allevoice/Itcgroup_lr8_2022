@@ -2,10 +2,9 @@
 
 @section('title', 'Forget Password')
 
-@section('bannerpage')
+@section('bannerview')
 
-@show
-
+@endsection
 
 @section('datacontent')
 

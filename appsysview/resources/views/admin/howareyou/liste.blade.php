@@ -43,7 +43,7 @@
                                 <td>{{$show->link}}</td>
 
                                 <td class="row visible-lg"  width="200">
-                                    {{Illuminate\Support\Str::limit($show->description, 50, '...')}}
+                                    {{$show->description}}
                                 </td>
                                 <td class="row visible-lg">{{statuscmd($show->status)}}</td>
 

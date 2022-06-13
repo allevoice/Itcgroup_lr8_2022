@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="{{ URL::asset('assets/img/logo/favicon.png') }}" type="image/x-icon"/>
         <title>Admin | @yield('title')</title>
         <style>
             /*ce style est pour les LI de TinyCME */
@@ -67,7 +68,9 @@
                             callback('#FF00FF');
                         },
 
-                        extended_valid_elements:"ul[class=persoimage],h1[id=presoh1],h2[id=presoh2],h3[id=presoh3],p[class=monpa]",
+                        /*extended_valid_elements:"ul[class=persoimage],h1[id=presoh1],h2[id=presoh2],h3[id=presoh3],p[class=monpa]",*/
+                        //extended_valid_elements:"ul[class=persoimage]",
+
 
                     });
                 </script>

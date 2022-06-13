@@ -144,6 +144,7 @@ class ServiceoffertController extends Controller
      */
     public function update(Request $request, Serviceoffert $serviceoffert)
     {
+
         //les variables pour la mise a jours
         $id = $request->id;
         $title = $request->title;

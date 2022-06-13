@@ -11,6 +11,6 @@ class HomesliderSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Homeslider::class, 13)->create();
+        factory(App\Homeslider::class, 4)->create();
     }
 }

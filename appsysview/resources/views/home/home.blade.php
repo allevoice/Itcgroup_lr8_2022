@@ -2,8 +2,10 @@
 
 @section('title', 'Accueil')
 
-@section('datacontent')
 
+
+
+@section('datacontent')
 
 
 
@@ -17,8 +19,11 @@
         <div class="paddingBox col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="container">
                 <div class="row text-center">
-                    <h2 class="black-font">We offer Different Services</h2>
-                    <p class="regular-font">We have the service you need, with international quality.</p>
+                    @foreach (dataviewhead('1','b') as $show)
+                    <h2 class="black-font">{{$show->title}}</h2>
+                    <p class="regular-font">{{$show->description}}</p>
+                    @endforeach
+
                     <div class="spacer"></div>
 
                     @if (count($serviv) > 0)
@@ -46,7 +51,7 @@
                                                     @endif
                                                 </figure>
                                                 <h4 class="white-color">{{$lst->title}}</h4>
-                                                <p class="regular-font">{{limitmanueltext($lst->titleinfo,50)}}</p>
+                                                <p class="regular-font">{{limitemtxt($lst->titleinfo,50)}}</p>
                                                 <div class="transparent-btn btn1">
                                                     {{--<a href="{{route('contact')}}">Contact</a>--}}
                                                     <a href="{{route('service_details',$lst->codeservice)}}">Link</a>
@@ -152,8 +157,10 @@
                         </div>
 
 
-                        <div class="transparent-btn pull-left">
-                            <a href="{{$bringviwelist->link}}" target="_blank">Contact Us</a>
+                        <div class="transparent-btn">
+                            <div class="col-md-6 col-md-offset-3">
+                                <a href="{{$bringviwelist->link}}" style="text-align: center"  target="_blank">Contact Us</a>
+                            </div>
                         </div>
                         <!--business-box-->
                     </div>

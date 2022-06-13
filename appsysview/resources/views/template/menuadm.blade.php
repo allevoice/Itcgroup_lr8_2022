@@ -147,6 +147,16 @@ font-size: 16px;">
                    </ul>
             </li>
 
+
+
+            <li>
+                <a href="{{route('listheaderpage')}}">Header Page</a>
+            </li>
+
+
+
+
+
             <li>
                 <a href="#">Setting<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">

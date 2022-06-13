@@ -2,10 +2,9 @@
 
 @section('title', 'blog')
 
-@section('bannerpage')
+@section('bannerview')
 
-@show
-
+@endsection
 
 @section('datacontent')
 
@@ -25,8 +24,10 @@
                     <div class="row">
                         <div class="sub-banner-text darkBlueBg regular-font col-lg-6 col-md-5 col-sm-12 col-xs-12" >
                             <div style="padding-left:10%;">
-                                <h1>blog</h1>
-                                <p>Meet the CEO : Jean Samuel Jules</p>
+                                @foreach (dataviewhead('5','a') as $show)
+                                    <h1>{{$show->title}}</h1>
+                                    <p>{{$show->description}} the CEO : Jean Samuel Jules</p>
+                                @endforeach
                             </div>
                             <!--sub-banner-text-->
                         </div>

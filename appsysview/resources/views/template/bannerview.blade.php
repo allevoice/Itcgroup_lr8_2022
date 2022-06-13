@@ -1,9 +1,8 @@
 <!--=====================================-->
 <!--============== Banner ===============-->
 <!--=====================================-->
-
+@if(isset($slideview))
 @if (count($slideview) > 0)
-
 
     <div id="carousel-example-generic" class="carousel slide colorback" data-ride="carousel" >
 
@@ -57,4 +56,6 @@
     </div>
 </div>
 
+@endif
+@else
 @endif
