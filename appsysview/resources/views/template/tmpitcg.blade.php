@@ -25,6 +25,7 @@
             .divtextcss .persoimage ul, .divtextcss .persoimage ol, .divtextcss .persoimage li{
                 list-style-type: none;
                 margin-left: 0;
+                margin-top: 0;
                 margin-right: 0;
                 margin-bottom: 0;
                 padding-left: 30px;
@@ -34,7 +35,10 @@
                 background-position: left center;
                 background-size: 20px;
             }
-            .persoimage ul{margin-top: 3%;}
+            .persoimage, .persoimage ul, .persoimage ol{
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
 
             .divtextcss .monpa, .divtextcss p {
                 margin-top: 3px;
@@ -42,6 +46,7 @@
                 margin-right: 0px;
                 margin-left: 0px;
                 padding: 0px 0px 0px 0px;
+                text-align: justify;
             }
 
             /*Code lightboxe image dans services*/

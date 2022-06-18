@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Advisor;
 use App\Homeslider;
+use App\Ourcompagnie;
+use App\Project;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App\Bringing;
@@ -10,6 +13,7 @@ use App\Howareyou;
 use App\Partner;
 use App\Serviceoffert;
 use App\Skill;
+use App\Founder;
 
 class HomeController extends Controller
 {
@@ -42,13 +46,10 @@ class HomeController extends Controller
         return view('home/partnerlist',compact('partner'));
     }
 
-
     public function serviceofferthome(){
         $serviceoffert = Serviceoffert::where('status','1')->orderBy('level', 'ASC')->paginate(8);
         return  view('home/services',compact('serviceoffert'));
     }
-
-
 
     public function servicedetailshome(Request $request){
 
@@ -63,7 +64,21 @@ class HomeController extends Controller
 
     }
 
+    public function aboutpage(){
+        $advisor = Advisor::where('status','1')->limit(4)->get();
 
+        $ourcomapgnie = Ourcompagnie::where('status','1')->limit(1)->get();
+
+        $founder  = Founder::where('status','1')->limit(1)->get();
+        //dd($ourcomapgnie);
+        return view('home/about',compact('ourcomapgnie','founder','advisor'));
+    }
+
+    public function projetpage(){
+        $projetdata  = Project::where('status','1')->get();
+        //dd($ourcomapgnie);
+        return view('home/projects',compact('projetdata'));
+    }
 
 
 

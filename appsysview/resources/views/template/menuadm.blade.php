@@ -67,47 +67,22 @@ font-size: 16px;">
                 <a href="#">About<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">Banner</a>
+                        <a href="{{route('listourcmg')}}">Our Compagnie</a>
                     </li>
                     <li>
-                        <a href="#">Our Compagnie</a>
+                        <a href="{{route('listfounder')}}">Founder</a>
                     </li>
                     <li>
-                        <a href="#">founder</a>
-                    </li>
-                    <li>
-                        <a href="#">Advisor</a>
-                    </li>
-
-                </ul>
-            </li>
-
-
-            <li>
-                <a href="#">Services<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="#">Banner</a>
-                    </li>
-                    <li>
-                        <a href="#">Our Services</a>
+                        <a href="{{route('listadvisor')}}">Advisor</a>
                     </li>
                 </ul>
             </li>
-
-
 
             <li>
                 <a href="#">Project<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">Banner</a>
-                    </li>
-                    <li>
-                        <a href="#">Our last work</a>
-                    </li>
-                    <li>
-                        <a href="#">Lists Project</a>
+                        <a href="{{route('listprojectdata')}}">Liste Project</a>
                     </li>
                    </ul>
             </li>
@@ -116,15 +91,7 @@ font-size: 16px;">
 
 
             <li>
-                <a href="#">Blog<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="#">Banner</a>
-                    </li>
-                    <li>
-                        <a href="#">blog sms</a>
-                    </li>
-                   </ul>
+                <a href="#">Blog</a>
             </li>
 
 

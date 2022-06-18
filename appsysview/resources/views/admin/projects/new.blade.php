@@ -1,12 +1,12 @@
 @extends('template.thermadmin')
 
-@section('title', 'How are you')
+@section('title', 'Projects')
 
 @section('admincontenent')
     <div class="col-md-12">
         <h2>
             New Insert
-            <a href="{{route('listhowareyou')}}" class="btn btn-md btn-primary"><i class="glyphicon glyphicon-arrow-left"></i></a>
+            <a href="{{route('listprojectdata')}}" class="btn btn-md btn-primary"><i class="glyphicon glyphicon-arrow-left"></i></a>
         </h2>
 
 
@@ -14,7 +14,7 @@
 
             <div class="col-md-10 col-sm-8">
 
-                <form method="post" action="{{route('inserthowareyou')}}">
+                <form method="post" action="{{route('insertprojectdata')}}">
                     @csrf
                     <div class="form-horizontal col-sm-12">
                         <div class="form-group @error('title') is-invalid @enderror">

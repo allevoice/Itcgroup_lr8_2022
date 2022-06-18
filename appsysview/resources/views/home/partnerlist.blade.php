@@ -67,7 +67,7 @@
                                             @if ($partnerlst->backimgpartner !=Null)
                                                 <img src="{{asset('assets/img/partners/')}}/{{$partnerlst->backimgpartner}}" alt="" height="200"/>
                                             @else
-                                                <img src="{{asset('assets/img/partners/services-img1.jpg')}}" alt="" height="200"/>
+                                                <img src="{{asset('assets/img/partners/services-default.jpg')}}" alt="" height="200"/>
                                             @endif
                                         </figure>
                                         <style>

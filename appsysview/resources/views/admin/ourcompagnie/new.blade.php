@@ -1,12 +1,12 @@
 @extends('template.thermadmin')
 
-@section('title', 'How are you')
+@section('title', 'Our Compagnie')
 
 @section('admincontenent')
     <div class="col-md-12">
         <h2>
             New Insert
-            <a href="{{route('listhowareyou')}}" class="btn btn-md btn-primary"><i class="glyphicon glyphicon-arrow-left"></i></a>
+            <a href="{{route('listourcmg')}}" class="btn btn-md btn-primary"><i class="glyphicon glyphicon-arrow-left"></i></a>
         </h2>
 
 
@@ -14,18 +14,10 @@
 
             <div class="col-md-10 col-sm-8">
 
-                <form method="post" action="{{route('inserthowareyou')}}">
+                <form method="post" action="{{route('insertourcmg')}}">
                     @csrf
                     <div class="form-horizontal col-sm-12">
-                        <div class="form-group @error('title') is-invalid @enderror">
-                            <label for="inputEmail3" class="col-sm-3 control-label">Titre</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="title" value="{{old('title')}}" placeholder="Titre De l'info bulble">
-                                @error('title')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
+
 
                         <div class="form-group @error('link') is-invalid @enderror">
                             <label for="inputEmail3" class="col-sm-3 control-label">Link</label>
@@ -38,15 +30,18 @@
                         </div>
 
 
-                        <div class="form-group @error('description') is-invalid @enderror">
-                            <label for="inputEmail3" class="col-sm-3 control-label">Contenue</label>
+
+
+                        <div class="form-group @error('myTextEditor') is-invalid @enderror">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Description</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control myTextEditor"  rows="3" name="description" placeholder="Votre contenu" >{{old('description')}}</textarea>
-                                @error('description')
+                                <textarea class="form-control" name="myTextEditor"  class="myTextEditor" rows="6" cols="96"   placeholder="Votre contenu" >{{old('description')}}</textarea>
+                                @error('myTextEditor')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
+
 
 
 
@@ -61,7 +56,7 @@
 
                         <div class="form-group text-center">
                             <div class="col-xs-6">
-                                <a href="{{route('listhowareyou')}}" class="btn btn-danger" type="button">Retour</a>
+                                <a href="{{route('listourcmg')}}" class="btn btn-danger" type="button">Retour</a>
                             </div>
                             <div class="col-xs-6">
                                 <label>

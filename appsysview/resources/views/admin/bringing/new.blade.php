@@ -56,7 +56,7 @@
 
                         <div class="form-group text-center">
                             <div class="col-xs-6">
-                                <a href="{{route('listhelping')}}" class="btn btn-danger" type="button">Retour</a>
+                                <a href="{{route('listbringing')}}" class="btn btn-danger" type="button">Retour</a>
                             </div>
                             <div class="col-xs-6">
                                 <label>

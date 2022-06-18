@@ -8,6 +8,13 @@
 
 @section('datacontent')
 
+    <style>
+        .imgprojects img{
+            width: auto;
+            height: 200px;
+        }
+    </style>
+
 
     <div class="main-contentbox">
 
@@ -64,6 +71,9 @@
             <!--paddingBox-->
         </div>
 
+
+    @if (count($projetdata) > 0)
+
         <!--=====================================-->
         <!--========== Our Latest Work ==========-->
         <!--=====================================-->
@@ -71,101 +81,41 @@
             <div class="container">
                 <div class="row text-center">
                     <div id="project-filter-box" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="project-filter-links current" id="all">All</div>
-                        <div class="project-filter-links" id="insurance">Installation</div>
-                        <div class="project-filter-links" id="debit">Web development</div>
-                        <div class="project-filter-links" id="invoice">Security</div>
-                        <div class="project-filter-links" id="report">Data management</div>
+
+                        @foreach (projetlisteswitch() as $key=>$liste)
+                            <div class="project-filter-links {{ $key=='0'  ? "current" : "" }}" id="{{$key}}">{{$liste}}</div>
+                        @endforeach
+
+
+                        {{--<div class="project-filter-links current" id="0">All</div>--}}
+                        {{--<div class="project-filter-links" id="insurance">Installation</div>--}}
+                        {{--<div class="project-filter-links" id="debit">Web development</div>--}}
+                        {{--<div class="project-filter-links" id="invoice">Security</div>--}}
+                        {{--<div class="project-filter-links" id="report">Data management</div>--}}
+
                         <!--project-filter-box-->
                     </div>
                     <div id="gallery-content" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div id="gallery-content-center">
                             <ul>
-                                <li class="all insurance col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                                @foreach ($projetdata as $liste)
+                                <li class="0 {{$liste->level}} col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="project-details text-left col-lg-12 col-md-12 co-sm-12 col-xs-12">
-                                        <figure><img src="{{asset('assets/img/logo/project-img1.jpg')}}" alt="project-img1" />
+                                        <figure class="imgprojects"><img src="{{asset('assets/img/projects/')}}/{{$liste->backimg}}" alt="project-img1" />
                                         </figure>
                                         <div>
-                                            <h3 class="black-color">Anual Company Growth</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna aliqua. Ut enim aquis nostrud
-                                                exercitatio ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                            <h3 class="black-color">{{$liste->title}}</h3>
+                                            <p>{{$liste->description}}</p>
                                         </div>
                                         <!--project-details-->
                                     </div>
                                     <!--all-->
                                 </li>
-                                <li class="all debit col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="project-details text-left col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <figure><img src="{{asset('assets/img/logo/project-img2.jpg')}}" alt="project-img2" /></figure>
-                                        <div>
-                                            <h3 class="black-color">Estelle Solution</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna aliqua. Ut enim aquis nostrud
-                                                exercitatio ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                        </div>
-                                        <!--project-details-->
-                                    </div>
-                                    <!--all-->
-                                </li>
+                                @endforeach
 
-                                <li class="all invoice col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="project-details text-left col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <figure><img src="{{asset('assets/img/logo/project-img3.jpg')}}" alt="project-img3" />
-                                        </figure>
-                                        <div>
-                                            <h3 class="black-color">Insurance</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna aliqua. Ut enim aquis nostrud
-                                                exercitatio ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                        </div>
-                                        <!--project-details-->
-                                    </div>
-                                    <!--all-->
-                                </li>
 
-                                <li class="all insurance col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="project-details text-left col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <figure><img src="{{asset('assets/img/logo/project-img4.jpg')}}" alt="project-img4" /></figure>
-                                        <div>
-                                            <h3 class="black-color">Estelle Solution</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna aliqua. Ut enim aquis nostrud
-                                                exercitatio ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                        </div>
-                                        <!--project-details-->
-                                    </div>
-                                    <!--all-->
-                                </li>
 
-                                <li class="all report col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="project-details text-left col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <figure><img src="{{asset('assets/img/logo/project-img5.jpg')}}" alt="project-img5" /></figure>
-                                        <div>
-                                            <h3 class="black-color">Business Insurance</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna aliqua. Ut enim aquis nostrud
-                                                exercitatio ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                        </div>
-                                        <!--project-details-->
-                                    </div>
-                                    <!--all-->
-                                </li>
-
-                                <li class="all invoice col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="project-details text-left col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <figure><img src="{{asset('assets/img/logo/project-img6.jpg')}}" alt="project-img6" /></figure>
-                                        <div>
-                                            <h3 class="black-color">business commitment</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna aliqua. Ut enim aquis
-                                                nostrud exercitatio ullamco laboris nisi ut aliquip ex ea commodo
-                                                consequat.</p>
-                                        </div>
-                                        <!--project-details-->
-                                    </div>
-                                    <!--all-->
-                                </li>
                             </ul>
                             <!--gallery-content-center-->
                         </div>
@@ -178,6 +128,10 @@
             <!--paddingBox-->
         </div>
         <!--main-contentbox-->
+
+
+    @endif
+
     </div>
 
 

@@ -29,16 +29,17 @@ Route::fallback(function (){
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/partner', 'HomeController@parnerliste')->name('parnerliste');
 Route::get('/services', 'HomeController@serviceofferthome')->name('services');
-Route::get('service_detail/{code}', 'HomeController@servicedetailshome')->name('service_details');
+Route::get('/service_detail/{code}', 'HomeController@servicedetailshome')->name('service_details');
+Route::get('/about', 'HomeController@aboutpage')->name('about');
+Route::get('/projet', 'HomeController@projetpage')->name('projects');
 
 
-Route::get('/about', function () {
-    return view('home/about');
-})->name('about');
 
-Route::get('projet', function () {
-    return view('home/projects');
-})->name('projects');
+
+
+
+
+
 
 Route::get('blog', function () {
     return view('home/blog');
@@ -78,6 +79,96 @@ Route::get('/admin','DashpageController@index')->name('adminpage');
 //    'destroy'
 //]);
 //Slide Shows
+
+
+
+
+
+
+/*========================Les routes de advisor Start===============================*/
+Route::resource('projectdata','ProjectController')->names([
+    'index'=> 'listprojectdata',
+    'show',
+    'create'=> 'newprojectdata',
+    'store'=>'insertprojectdata',
+    'edit'=>'editprojectdata',
+    'update' =>'addupdprojectdata',
+    'destroy'=>'delprojectdata'
+]);
+Route::get('/newdataprojectdata','ProjectController@newdata')->name('addstprojectdata');
+Route::get('/projectdataimg/{slug}','ProjectController@updimages')->name('editimgdataprojectdata');
+Route::get('/projectdataviewdel','ProjectController@sofderestore')->name('projectdatalstdel');
+Route::get('/restoreprojectdata/{id}','ProjectController@restoredestroy')->name('restdelprojectdata');
+Route::delete('/destoreprojectdata/{id}','ProjectController@destoredefinitely')->name('projectdatadelete');
+/*========================Les routes de advisor END===============================*/
+
+
+
+
+/*========================Les routes de advisor Start===============================*/
+Route::resource('advisor','AdvisorController')->names([
+    'index'=> 'listadvisor',
+    'show',
+    'create'=> 'newadvisor',
+    'store'=>'insertadvisor',
+    'edit'=>'editadvisor',
+    'update' =>'addupdadvisor',
+    'destroy'=>'deladvisor'
+]);
+Route::get('/newdataadvisor','AdvisorController@newdata')->name('addstadvisor');
+Route::get('/advisorimg/{slug}','AdvisorController@updimages')->name('editimgdataadvisor');
+Route::get('/advisorviewdel','AdvisorController@sofderestore')->name('advisorlstdel');
+Route::get('/restoreadvisor/{id}','AdvisorController@restoredestroy')->name('restdeladvisor');
+Route::delete('/destoreadvisor/{id}','AdvisorController@destoredefinitely')->name('advisordelete');
+/*========================Les routes de advisor END===============================*/
+
+
+
+
+
+
+/*========================Les routes de Founder Start===============================*/
+Route::resource('founder','FounderController')->names([
+    'index'=> 'listfounder',
+    'show',
+    'create'=> 'newfounder',
+    'store'=>'insertfounder',
+    'edit'=>'editfounder',
+    'update' =>'addupdfounder',
+    'destroy'=>'delfounder'
+]);
+Route::get('/newdatafounder','FounderController@newdata')->name('addstfounder');
+Route::get('/founderimg/{slug}','FounderController@updimages')->name('editimgdatafounder');
+Route::get('/founderviewdel','FounderController@sofderestore')->name('founderlstdel');
+Route::get('/restorefounder/{id}','FounderController@restoredestroy')->name('restdelfounder');
+Route::delete('/destorefounder/{id}','FounderController@destoredefinitely')->name('founderdelete');
+/*========================Les routes de Founder END===============================*/
+
+
+
+
+
+
+
+/*========================Les routes de Our Compagnie Start===============================*/
+Route::resource('ourcompagnie','OurcompagnieController')->names([
+    'index'=> 'listourcmg',
+    'show',
+    'create'=> 'newourcmg',
+    'store'=>'insertourcmg',
+    'edit'=>'editourcmg',
+    'update' =>'addupdourcmg',
+    'destroy'=>'delourcmg'
+]);
+Route::get('/newdataaddcompagnie','OurcompagnieController@newdata')->name('addstourcmg');
+Route::get('/ourcompagnieimg/{slug}','OurcompagnieController@updimages')->name('editimgdataourcmg');
+Route::get('/ourcompagniedel','OurcompagnieController@sofderestore')->name('ourcmglstdel');
+Route::get('/restoreourcompagnie/{id}','OurcompagnieController@restoredestroy')->name('restdelourcmg');
+Route::delete('/destoreourcompagnie/{id}','OurcompagnieController@destoredefinitely')->name('ourcmgdelete');
+/*========================Les routes de Our Compagnie END===============================*/
+
+
+
 
 
 

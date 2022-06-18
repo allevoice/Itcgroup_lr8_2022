@@ -27,7 +27,16 @@ class HeaderpageController extends Controller
      */
     public function edit(Headerpage $headerpage)
     {
-        //
+        //$id=$request->slideadmin;
+
+        //$show = Headerpage::where('id',$id)->first();
+        $show = $headerpage;
+        //dd($service);
+        if($show !=NULL){
+            return view('admin/headerpage/edit',compact('show'));
+        }else{
+            return redirect()->route('listheaderpage');
+        }
     }
 
     /**
@@ -39,14 +48,41 @@ class HeaderpageController extends Controller
      */
     public function update(Request $request, Headerpage $headerpage)
     {
-        //
+        $id = $headerpage->id;
+        $title = $request->title;
+        $description = $request->description;
+        $status = $request->status;
+
+        //dd($id);
+        $message_fr = [
+            'title.required'=> 'Le champ titre ne doit pas etre vide',
+            'title.max'=> 'Le champ titre ne doit pas depasser les :max caractères',
+            'title.min'=> 'Le champ titre ne doit pas inferieur les :min caractères',
+
+            'description.required'=> 'Le champ titre ne doit pas etre vide',
+        ];
+
+       $upd = Headerpage::where('id', $id);
+                $request->validate([
+                    'title'=>'required|min:5|max:250',
+                    'description'=>'required'
+                ],$message_fr);
+
+        $upd->update([
+                'title' => $title,
+                'description' => $description,
+                'status' => $status
+            ]);
+            return redirect(route('listheaderpage'));
+
     }
 
     //Insertion de nouvelle donne si ce trouve les tables non pas de donnees
     public function newdata(){
         $user = '1';
+        $today = now();
 
-        $data =Headerpage::insert([
+        $data = Headerpage::insert([
             [
                 'title' => 'WE OFFER DIFFERENT SERVICES',
                 'description' => 'We have the service you need, with international quality.',
@@ -55,6 +91,7 @@ class HeaderpageController extends Controller
                 'langues' => '1',
                 'level' => 'b',
                 'iduser' => $user,
+                'created_at'=>$today,
             ],
             [
                 'title' => 'ABOUT US',
@@ -64,6 +101,7 @@ class HeaderpageController extends Controller
                 'langues' => '1',
                 'level' => 'a',
                 'iduser' => $user,
+                'created_at'=>$today,
             ],
             [
                 'title' => 'MEET OUR ADVISORS',
@@ -73,6 +111,7 @@ class HeaderpageController extends Controller
                 'langues' => '1',
                 'level' => 'b',
                 'iduser' => $user,
+                'created_at'=>$today,
             ],
             [
                 'title' => 'SERVICES',
@@ -82,6 +121,7 @@ class HeaderpageController extends Controller
                 'langues' => '1',
                 'level' => 'a',
                 'iduser' => $user,
+                'created_at'=>$today,
             ],
             [
                 'title' => 'WE OFFER DIFFERENT SERVICES',
@@ -91,6 +131,7 @@ class HeaderpageController extends Controller
                 'langues' => '1',
                 'level' => 'b',
                 'iduser' => $user,
+                'created_at'=>$today,
             ],
             [
                 'title' => 'PROJECTS',
@@ -100,6 +141,7 @@ class HeaderpageController extends Controller
                 'langues' => '1',
                 'level' => 'a',
                 'iduser' => $user,
+                'created_at'=>$today,
             ],
             [
                 'title' => 'OUR LATEST WORK',
@@ -109,6 +151,7 @@ class HeaderpageController extends Controller
                 'langues' => '1',
                 'level' => 'b',
                 'iduser' => $user,
+                'created_at'=>$today,
             ],
             [
                 'title' => 'BLOG',
@@ -118,6 +161,7 @@ class HeaderpageController extends Controller
                 'langues' => '1',
                 'level' => 'a',
                 'iduser' => $user,
+                'created_at'=>$today,
             ],
             [
                 'title' => 'CONTACT US',
@@ -127,6 +171,7 @@ class HeaderpageController extends Controller
                 'langues' => '1',
                 'level' => 'a',
                 'iduser' => $user,
+                'created_at'=>$today,
             ],
             [
                 'title' => 'GET IN TOUCH WITH US',
@@ -136,6 +181,7 @@ class HeaderpageController extends Controller
                 'langues' => '1',
                 'level' => 'b',
                 'iduser' => $user,
+                'created_at'=>$today,
             ],
             [
                 'title' => 'LEAVE A COMMENT',
@@ -145,6 +191,7 @@ class HeaderpageController extends Controller
                 'langues' => '1',
                 'level' => 'c',
                 'iduser' => $user,
+                'created_at'=>$today,
             ],
             [
                 'title' => 'Our Business Partners',
@@ -154,6 +201,7 @@ class HeaderpageController extends Controller
                 'langues' => '1',
                 'level' => 'a',
                 'iduser' => $user,
+                'created_at'=>$today,
             ]
         ]);
 
