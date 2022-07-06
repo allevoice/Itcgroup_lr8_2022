@@ -250,11 +250,11 @@
         <div class="row">
             <div class="footer col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <aside class="newsletter col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <h5>newsletter</h5>
+                    <h5>{{languesviewdatafixepage('newsletter')}}</h5>
                     <div class="form-group pull-left">
-                        <input type="email" class="form-control" placeholder="Enter your email" name="letter-email" id="letter-email">
+                        <input type="email" class="form-control" placeholder="{{languesviewdatafixepage('enter_your_email')}}" name="letter-email" id="letter-email">
                     </div>
-                    <button type="submit" class="btn btn-default pull-left">Go</button>
+                    <button type="submit" class="btn btn-default pull-left">{{languesviewdatafixepage('go')}}</button>
                     <div class="clearfix"></div>
                     <ul>
                         <li>
@@ -271,7 +271,7 @@
                     <!--newsletter-->
                 </aside>
                 <aside class="sitemap col-lg-2 col-md-3 col-sm-6 col-xs-12">
-                    <h5>partnership</h5>
+                    <h5>{{languesviewdatafixepage('partnership')}}</h5>
                     <ul>
                         <li style="background: url({{asset('assets/img/icons/li-icon.png')}}) no-repeat left 7px;">
                             <a href="#">NTPsams Technology</a>
@@ -292,7 +292,7 @@
                     <!--sitemap-->
                 </aside>
                 <aside class="twitter-feeds col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <h5>Facebook Feeds</h5>
+                    <h5>{{languesviewdatafixepage('feedsfacebook')}}</h5>
                     <ul>
                         <li>
                             <i class="fa fa-facebook"></i>
@@ -314,7 +314,7 @@
                     <ul>
                         <li>Copyright © FC Group 2020.</li>
                         <li>All rights reserved.</li>
-                        <li>Created by:
+                        <li>{{languesviewdatafixepage('createdby')}}
                             <a href="#">NTPSAMS</a>
                         </li>
                     </ul>

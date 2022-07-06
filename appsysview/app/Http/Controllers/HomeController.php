@@ -83,6 +83,19 @@ class HomeController extends Controller
 
 
 
+    public function blogpage(){
+        return view('home/blog');
+
+
+        /*
+        $projetdata  = Project::where('status','1')->get();
+        //dd($ourcomapgnie);
+        return view('home/projects',compact('projetdata'));*/
+    }
+
+
+
+
 
 
 

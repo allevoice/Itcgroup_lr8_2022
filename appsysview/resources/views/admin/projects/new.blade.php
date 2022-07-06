@@ -50,6 +50,22 @@
 
 
 
+                        <div class="form-group @error('level') is-invalid @enderror">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Level</label>
+                            <div class="col-sm-9">
+                                <label>
+                                    <select class="form-control" name="level">
+                                        @foreach (projetlisteswitch() as $key=>$liste)
+                                            {{--<option value="{{$key}}" selected='selected'>{{$liste}}</option>--}}
+                                            <option value="{{$key != 0 ? $key : "Liste"}}"  {{ $key==old('level') ? "selected" : "" }} >{{$key != 0 ? $liste : "--CHOIX--"}}</option>
+                                        @endforeach
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+
+
+
                         <div class="form-group @error('linkv') is-invalid @enderror">
                             <label for="inputEmail3" class="col-sm-3 control-label">Langues</label>
                             <div class="col-sm-9">

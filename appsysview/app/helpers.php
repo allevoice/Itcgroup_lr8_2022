@@ -57,6 +57,50 @@ if(!function_exists('projetlisteswitch')){
 
 
 
+if(!function_exists('languesviewdatafixepage')){
+    function languesviewdatafixepage($name=NULL,$lng=NULL){
+
+        if($lng == NULL){
+            switch ($name) {
+                /*===================MENU=======================*/
+                case 'home': return "Home";break;
+                case 'about': return "About";break;
+                case 'service': return "Services";break;
+                case 'project': return "Project";break;
+                case 'blog': return "Blog";break;
+                case 'contact': return "Contact";break;
+                /*===================MENU=======================*/
+
+                /*===================FOOTHER PAGE=======================*/
+                case 'newsletter': return "Newsletter";break;
+                case 'enter_your_email': return "Enter Your Email";break;
+                case 'go': return "Go";break;
+                case 'partnership': return "Partnership";break;
+                case 'feedsfacebook': return "Facebook Feeds";break;
+                case 'createdby': return "Created by";break;
+                /*===================FOOTHER PAGE=======================*/
+
+
+            }
+        }
+        elseif($lng == 'fr'){
+                switch ($name) {
+                    case 'home': return "Accueil";break;
+                    case 'about': return "A propos de";break;
+                    case 'service': return "Services";break;
+                    case 'project': return "Projet";break;
+                    case 'blog': return "Blog";break;
+                    case 'contact': return "Contact";break;
+
+            }
+        }
+
+
+    }
+}
+
+
+
 
 if(!function_exists('detpageinfo')){
     function detpageinfo($pagename=NULL,$Level=NULL){

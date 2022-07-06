@@ -1,6 +1,6 @@
 @extends('template.tmpitcg')
 
-@section('title', 'blog')
+@section('title', languesviewdatafixepage('blog'))
 
 @section('bannerview')
 
@@ -78,8 +78,8 @@
                     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                         <aside class="blog-post-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="row">
-                                <figure class="post-img"> <img src="{{asset('assets/img/blog/post-img1.jpg')}}" alt="post-img1" /> <span class="date-tag semibold-font">12 <br>
-                AUGUST 2020</span>
+                                <figure class="post-img"> <img src="{{asset('assets/img/blog/post-img1.jpg')}}" alt="post-img1" />
+                                    <span class="date-tag semibold-font" style="margin-left: 0px;padding-right: 2%;width: auto">12 AUGUST 2020</span>
                                     <!--post-img-->
                                 </figure>
                                 <div class="blog-post-info col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -99,16 +99,18 @@
                                         <p>JEAN SAMUEL JULES, S.E. SYSTEM ENGINEER
                                             CEO. CHIEF EXECUTIVE OFFICER.
                                             <br>NTPSAMS-TECHNOLOGY & ITCGROUP Education:
-                                            <br>§ 4 Years of Studies in the field of Computer Sciences at University of INUQUA
-                                            <br>§ 1 Year of Master in the specialization of Network and Telecommunication the field of Computer Sciences at University of CREFIMA) (Licence in Computer Sciences / INUQUA / CREFIMA)
-                                            <br>§ Has attended several seminaries on self performance for Certifications in specific fields such as:  Networking, Telecom, Entrepreneurship, Law of work, Project Management and Programming Systems at ESIH, AUF, INUQUA, UNIQ, PACT respectively.(Certificates/ESIH( Ecole Superieur en Informatique d’Haiti, INUQUA(Institut Universitaire Quisqueya D'AMÉRIQUE), AUF(Agence Universitaire Francophone), UNIQ (Universite Quisqueya), CPLA (Cabinet Patrick Laurent) PACT (Progress & Accelerated Change Through Technology))
-                                            <br><br>Affiliations
-                                            <br>§ Member of AHTIC (L’Association Haïtienne pour les Technologies de l’Information et de la Communication).
+                                            <br>1- 4 Years of Studies in the field of Computer Sciences at University of INUQUA
+                                            <br>2- 1 Year of Master in the specialization of Network and Telecommunication the field of Computer Sciences at University of CREFIMA) (Licence in Computer Sciences / INUQUA / CREFIMA)
+                                            <br>3- Has attended several seminaries on self performance for Certifications in specific fields such as:  Networking, Telecom, Entrepreneurship, Law of work, Project Management and Programming Systems at ESIH, AUF, INUQUA, UNIQ, PACT respectively.(Certificates/ESIH( Ecole Superieur en Informatique d’Haiti, INUQUA(Institut Universitaire Quisqueya D'AMÉRIQUE), AUF(Agence Universitaire Francophone), UNIQ (Universite Quisqueya), CPLA (Cabinet Patrick Laurent) PACT (Progress & Accelerated Change Through Technology))
+                                            <br><br>
+                                            <h3>Affiliations</h3>
+                                            <br>1- Member of AHTIC (L’Association Haïtienne pour les Technologies de l’Information et de la Communication).
                                             Summary:
                                             <br>§ Has worked as an IT Consultant and Sales Engineering for the past 10 years always available and passionate in bringing the assistance needed to his Customers and Enterprises like; NGOs, UN locally and Internationally as well as the general population in these specific lists of services.
                                             <br>For more information please follow these links:
                                             (http://www.ntpsams.com https://itcgrouphaiti.com/blog
-                                            <br><br>Experience:
+                                            <br><br>
+                                        <h4>Experience:</h4>
                                             <br>- Pixel Haïti, IT Technicien, in the Cabling System for Both Building Hainet at Darguin Street, Petion-Ville.
                                             <br>- Manutech INC, IT Consultant for the Local and International Company Managing the servers and taking care of the maintenance in the help desk department.
                                             <br>- Digicel Haïti, CCTECH Agent in Help Desk Department.

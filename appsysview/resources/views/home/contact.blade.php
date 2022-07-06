@@ -1,6 +1,6 @@
 @extends('template.tmpitcg')
 
-@section('title', 'Contact')
+@section('title', languesviewdatafixepage('contact'))
 
 @section('bannerview')
 

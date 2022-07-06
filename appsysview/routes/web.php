@@ -32,6 +32,7 @@ Route::get('/services', 'HomeController@serviceofferthome')->name('services');
 Route::get('/service_detail/{code}', 'HomeController@servicedetailshome')->name('service_details');
 Route::get('/about', 'HomeController@aboutpage')->name('about');
 Route::get('/projet', 'HomeController@projetpage')->name('projects');
+Route::get('/blog', 'HomeController@blogpage')->name('blog');
 
 
 
@@ -39,11 +40,6 @@ Route::get('/projet', 'HomeController@projetpage')->name('projects');
 
 
 
-
-
-Route::get('blog', function () {
-    return view('home/blog');
-})->name('blog');
 
 Route::get('contact', function () {
     return view('home/contact');
@@ -85,7 +81,27 @@ Route::get('/admin','DashpageController@index')->name('adminpage');
 
 
 
-/*========================Les routes de advisor Start===============================*/
+/*========================Les routes de  Start===============================*/
+Route::resource('bloguedata','BlogueController')->names([
+    'index'=> 'listblog',
+    'show',
+    'create'=> 'newblog',
+    'store'=>'insertblog',
+    'edit'=>'editblog',
+    'update' =>'addupdblog',
+    'destroy'=>'delblog'
+]);
+Route::get('/newdatablogdata','BlogueController@newdata')->name('addstblog');
+Route::get('/blogimg/{slug}','BlogueController@updimages')->name('editimgdatablog');
+Route::get('/blogviewdel','BlogueController@sofderestore')->name('bloglstdel');
+Route::get('/restoreblog/{id}','BlogueController@restoredestroy')->name('restdelblog');
+Route::delete('/destoreblog/{id}','BlogueController@destoredefinitely')->name('blogdelete');
+/*========================Les routes de advisor END===============================*/
+
+
+
+
+/*========================Les routes de Projet Start===============================*/
 Route::resource('projectdata','ProjectController')->names([
     'index'=> 'listprojectdata',
     'show',
@@ -100,7 +116,7 @@ Route::get('/projectdataimg/{slug}','ProjectController@updimages')->name('editim
 Route::get('/projectdataviewdel','ProjectController@sofderestore')->name('projectdatalstdel');
 Route::get('/restoreprojectdata/{id}','ProjectController@restoredestroy')->name('restdelprojectdata');
 Route::delete('/destoreprojectdata/{id}','ProjectController@destoredefinitely')->name('projectdatadelete');
-/*========================Les routes de advisor END===============================*/
+/*========================Les routes de Projet END===============================*/
 
 
 

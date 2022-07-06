@@ -20,9 +20,9 @@ class ProjectController extends Controller
             'title.max'=> 'Le champ titre ne doit pas depasser les :max caractères',
             'title.min'=> 'Le champ titre ne doit pas inferieur les :min caractères',
 
-            'post.required'=> 'Le champ Poste ne doit pas etre vide',
-            'post.max'=> 'Le champ Poste ne doit pas depasser les :max caractères',
-            'post.min'=> 'Le champ Poste ne doit pas inferieur les :min caractères',
+            'description.required'=> 'Le champ Poste ne doit pas etre vide',
+            'description.max'=> 'Le champ Poste ne doit pas depasser les :max caractères',
+            'description.min'=> 'Le champ Poste ne doit pas inferieur les :min caractères',
 
 
             'link.required'=> 'Le champ Url ne doit pas etre vide',
@@ -70,7 +70,36 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd('insert',$request->all());
+        $title = $request->title;
+        $link = $request->link;
+        $level = $request->level;
+        $description = $request->description;
+        $status = '0';
+        $langues = '1';
+        $iduser = '1';
+
+        //verification et envoie des message
+        $request->validate([
+            'title'=>'required|min:5|max:250',
+            'description'=>'required',
+            'link'=>'required|url',
+            'level'=>'required',
+        ],$this->messageerreur());
+
+        //insertion de nouvelle de donnee
+        $data= new Project();
+        $data->title = $title;
+        $data->link = $link;
+        $data->level = $level;
+        $data->description = $description;
+        $data->status = $status;
+        $data->langues = $langues;
+        $data->iduser = $iduser;
+        $data->save();
+        //redirection vers la page liste
+        return redirect()->route('editprojectdata',$data->id);
+
     }
 
     /**
@@ -115,6 +144,82 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
+
+        //dd($request->all(),$project->id);
+        //dd('mon code');
+
+
+
+
+
+        $id = $request->id;
+        $title = $request->title;
+        $link = $request->link;
+        $description = $request->description;
+        $status = $request->status;
+        $level = $request->level;
+        $iduser = $request->iduser;
+
+
+        $message_fr= $this->messageerreur();
+
+
+
+        $helpupdatedata = Project::where('id', $id);//fixer l'id pour la mise a jour
+        $nbr = time().'-'.date("Y").date("m").date("d"); //recupere l'annee le mois le jour
+        //dd($request->indice);
+        //Mise a jour du logo ssi indice ==2
+        if ($request->indice==2){
+            //on verifie que si c'est un images
+            $request->validate([
+                'backimg'=>'required|mimes:PNG,JPG,JPEG,png,jpg,jpeg|max:1024'
+            ],$message_fr);
+
+            $exte_file = $request->file(['backimg'])->extension();
+            $newNameImage_file = $nbr.'-backimg';
+
+            $filename_file = md5_file($request->file('backimg')->getRealPath()).$newNameImage_file.'.'.$exte_file;
+
+            $data = $helpupdatedata->update([
+                'backimg'=>$filename_file,
+            ]);
+
+            if($data==true) {
+                //sauvegarde du fichier dans un repertoire
+                $request->file('backimg')->storeAs('assets/img/projects/', $filename_file, 'public_perso');
+            }
+            return redirect(route('editprojectdata',$id));
+
+
+
+
+        }
+        //Mise a jour des texte ssi indice ==3
+        elseif ($request->indice==3){
+
+            $request->validate([
+                'title'=>'required|min:5|max:250',
+                'description'=>'required',
+                'link'=>'required|url',
+                'level'=>'required',
+            ],$message_fr);
+
+            $helpupdatedata->update([
+                'title' => $title,
+                'level' => $level,
+                'description' => $description,
+                'link' => $link,
+                'status' => $status
+
+            ]);
+            return redirect(route('editprojectdata',$id));
+
+        }else{
+            return redirect(route('listprojectdata'));
+            echo 'On ne fait rien';
+        }
+
+
 
     }
 

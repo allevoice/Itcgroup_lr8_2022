@@ -91,7 +91,7 @@ font-size: 16px;">
 
 
             <li>
-                <a href="#">Blog</a>
+                <a href="{{route('listblog')}}">Blog</a>
             </li>
 
 
@@ -100,16 +100,10 @@ font-size: 16px;">
                 <a href="#">Contact<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">With us</a>
-                    </li>
-                    <li>
-                        <a href="#">Our comment</a>
-                    </li>
-                    <li>
                         <a href="#">Contact Message</a>
                     </li>
                     <li>
-                        <a href="#">Maps</a>
+                        <a href="#">Newsletter</a>
                     </li>
                    </ul>
             </li>
@@ -121,17 +115,11 @@ font-size: 16px;">
             </li>
 
 
-
-
-
             <li>
                 <a href="#">Setting<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="#">Status</a>
-                    </li>
-                    <li>
-                        <a href="#">Our comment</a>
                     </li>
                     <li>
                         <a href="#">Contact Message</a>

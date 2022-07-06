@@ -80,7 +80,7 @@
                                             <select class="form-control" name="level">
                                                 @foreach (projetlisteswitch() as $key=>$liste)
                                                     {{--<option value="{{$key}}" selected='selected'>{{$liste}}</option>--}}
-                                                    <option value="{{$key != 0 ? $key : "Liste"}}"  {{ $key==old('level') ? "selected" : "" }} >{{$key != 0 ? $liste : "--CHOIX--"}}</option>
+                                                    <option value="{{$key != 0 ? $key : "Liste"}}"  {{ $key==$data->level ? "selected" : "" }} >{{$key != 0 ? $liste : "--CHOIX--"}}</option>
                                                 @endforeach
                                             </select>
                                         </label>

@@ -33,26 +33,26 @@
                                     <ul class="nav navbar-nav pull-right" >
                                         {{--<li class="@if (url()->current() == route('home')) active @endif">--}}
                                         <li class="@if (url()->current() == route('home')) active @endif">
-                                            <a href="{{route('home')}}">Accueil</a>
+                                            <a href="{{route('home')}}">{{languesviewdatafixepage('home')}}</a>
                                         </li>
                                         <li class="@if (url()->current() == route('about')) active @endif">
-                                            <a href="{{route('about')}}">A propos de</a>
+                                            <a href="{{route('about')}}">{{languesviewdatafixepage('about')}}</a>
                                         </li>
                                         <li class="@if (url()->current() == route('services')) active @endif">
-                                            <a href="{{route('services')}}">Services</a>
+                                            <a href="{{route('services')}}">{{languesviewdatafixepage('service')}}</a>
                                         </li>
 
                                         <li class="@if (url()->current() == route('projects')) active @endif">
-                                            <a href="{{route('projects')}}">Projets</a>
+                                            <a href="{{route('projects')}}">{{languesviewdatafixepage('project')}}</a>
                                         </li>
 
                                         <li class="@if (url()->current() == route('blog')) active @endif">
-                                            <a href="{{route('blog')}}">Blogues</a>
+                                            <a href="{{route('blog')}}">{{languesviewdatafixepage('blog')}}</a>
                                         </li>
 
 
                                         <li class="@if (url()->current() == route('contact')) active @endif">
-                                            <a href="{{route('contact')}}">Contact</a>
+                                            <a href="{{route('contact')}}">{{languesviewdatafixepage('contact')}}</a>
                                         </li>
 
 
